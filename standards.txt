@@ -1,0 +1,39 @@
+         
+       Documentation :  
+              Font Size
+            // Main Heading: 18 
+            // Sub Heading: 14
+            // Content: 12
+            // Font Family 
+            // Times New Roman 
+      
+        Android:
+           Device : Android 5X
+           MainHeading:24sp
+           SubHeading:18sp
+           content: 16sp
+           Theme : Default.AppTheme
+           FontFamily:  
+           FontColorHeading:
+           FontColorSubHeading:
+           FontColorText:
+           Asset/Images : 
+        
+       Required Functionality :
+   
+           
+
+
+
+
+       Additional Requirement:
+        
+
+   
+
+
+
+
+
+
+  
