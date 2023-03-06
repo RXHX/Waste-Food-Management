@@ -1,8 +1,8 @@
-# FoodManagement System
+# FoodManagement System #
 
 
   
- 
+## Request : Only to do push command, don't do pull command follow the below commands only ## 
 ## Steps you can follow if you want to do git task  ##
    <ul>
    <li> Go search bar And type cmd </li>
