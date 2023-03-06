@@ -18,10 +18,19 @@
      <li>  git push </li>   
    </ul>
     
+    
+    
+    
+    
+    
+    
+    
+    | a | b |
+    | --- | -- |
 
-| Module | Task | Assigned Member | Status   
-| ---   | ---  | ---
-| Login | Designing the Layout | NA | Pending
+| Module | Task | Assigned Member | Status  | 
+| ---   | ---  | --- |
+| Login | Designing the Layout | NA | Pending |
 | Registration | Designing the Layout | NA | Pending
 | CustomerChat | Designing the Layout | NA  | Pending
 | CustomerOrder |Designing the Layout | NA  | Pending
