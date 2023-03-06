@@ -19,24 +19,25 @@
    </ul>
     
     
+   
     
-    
-    
-    
-    
-    
-    | a | b |
-    | --- | -- |
+   ### Week 1 ( 06-March-2022 to 12-March-2022)  ###
 
-| Module | Task | Assigned Member | Status  | 
-| ---   | ---  | --- |
-| Login | Designing the Layout | NA | Pending |
-| Registration | Designing the Layout | NA | Pending
-| CustomerChat | Designing the Layout | NA  | Pending
-| CustomerOrder |Designing the Layout | NA  | Pending
-| CustomerProfile | Designing the Layout | NA | Pending
-| CustomerDelivery | Designing the Layout | NA | Pending
-| ManagerChat | Designing the Layout | NA   | Pending
-| ManagerInventory | Designing the Layout | NA | Pending 
-| ManagerOrder | Designing the Layout | NA | Pending
-| ManagerProfile | Designing the Layout | NA | Pending
+| Module | Type |Task | Assigned Member | Status | Deadline   
+| ---   | --- |---  | --- | --- | ---
+| Login | Primary| Designing the Layout | NA | Pending |  12 March 2022
+| Registration | Primary| Designing the Layout | NA | Pending |  12 March 2022
+| CustomerChat | Primary| Designing the Layout | NA  | Pending |  12 March 2022
+| CustomerOrder | Primary| Designing the Layout | NA  | Pending |  12 March 2022
+| CustomerProfile | Primary| Designing the Layout | NA | Pending |  12 March 2022
+| CustomerDelivery | Primary| Designing the Layout | NA | Pending |  12 March 2022
+| ManagerChat | Primary| Designing the Layout | NA   | Pending |  12 March 2022
+| ManagerInventory | Primary| Designing the Layout | NA | Pending |  12 March 2022
+| ManagerOrder | Primary| Designing the Layout | NA | Pending |  12 March 2022
+| ManagerProfile | Primary| Designing the Layout | NA | Pending |  12 March 2022
+| Splash Screen | Miscellaneous | Designing the Layout | NA | Pending |  12 March 2022
+| Making Logo |  Miscellaneous |Designing the Layout | NA | Pending |  12 March 2022
+ 
+
+
+
