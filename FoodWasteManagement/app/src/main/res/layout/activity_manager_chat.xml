@@ -5,6 +5,4 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FF9800"
-    tools:context=".ManagerChat">
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    tools:context=".ManagerChat"/>
