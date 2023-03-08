@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">FoodWaste</string>
+    <string name="userRegister">Registration</string>
+    <string name="registerUser">Username</string>
+    <string name="registerPassword">Password</string>
+    <string name="registerName">FullName</string>
+    <string name="txtDob">DateOfBirth</string>
+    <string name="txtSubmit">Submit</string>
 </resources>
