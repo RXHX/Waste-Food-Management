@@ -25,7 +25,7 @@
 
 | Module | Type |Task | Assigned Member | Status | Deadline   
 | ---   | --- |---  | --- | --- | ---
-| Login | Primary| Designing the Layout | NA | Pending |  12 March 2022
+| Login | Primary| Designing the Layout | Done | Pending |  12 March 2022
 | Registration | Primary| Designing the Layout | NA | Pending |  12 March 2022
 | CustomerChat | Primary| Designing the Layout | NA  | Pending |  12 March 2022
 | CustomerOrder | Primary| Designing the Layout | NA  | Pending |  12 March 2022
