@@ -13,7 +13,7 @@
            SubHeading:18sp
            content: 16sp
            Theme : Default.AppTheme
-           FontFamily: #FA4309 
+           FontFamily:#FF9800
            FontColorHeading:
            FontColorSubHeading:
            FontColorText:
