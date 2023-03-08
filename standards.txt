@@ -6,28 +6,28 @@
             // Content: 12
             // Font Family 
             // Times New Roman 
+	    
       
         Android:
            Device : Android 5X
            MainHeading:24sp
            SubHeading:18sp
-           content: 16sp
+           content: 20sp
            Theme : Default.AppTheme
            FontFamily:#FF9800
            FontColorHeading:
            FontColorSubHeading:
            FontColorText:
-           Asset/Images : 
+           Asset/Images :
+	   cornerRadius: 10sp 
+	   
         
-       Required Functionality :
-   
-           
+     Saksham: Login Screen
+	
+	button text size: 13sp
+	button height: 50sp
+	corner radius: 10sp
 
-
-
-
-       Additional Requirement:
-        
 
    
 

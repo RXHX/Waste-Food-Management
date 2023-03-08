@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">FoodWaste</string>
+    <string name="imgLogo">an Image</string>
+    <string name="edUserName">Username...</string>
+    <string name="edPassword">Password...</string>
+    <string name="btnLogin">Login</string>
+    <string name="btnForgetPass">Forgot Password ?</string>
+    <string name="btnSignCust">Sign Up As a Customer</string>
+    <string name="btnSignManager">Sign Up As a Manager</string>
 </resources>
