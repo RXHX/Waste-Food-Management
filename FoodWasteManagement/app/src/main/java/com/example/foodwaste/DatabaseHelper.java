@@ -16,6 +16,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     final static String T1COL_2 = "LoginName";
     final static String T1COL_3 = "Password";
 
+    // Table for customer registration table
+    final static String TABLE2_NAME ="Customer_Registration_table";
+    final static String T2COL_1 = "Id";
+    final static String T2COL_2 = "UserName";
+    final static String T2COL_3 = "Password";
+    final static String T2COL_4 = "FullName";
+    final static String T2COL_5 = "DOB";
+
 
     public DatabaseHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -24,9 +32,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        String query = "CREATE TABLE " + TABLE1_NAME + "(" + T1COL_1 +
+        String queryLogin = "CREATE TABLE " + TABLE1_NAME + "(" + T1COL_1 +
                 " INTEGER PRIMARY KEY, " + T1COL_2 + " TEXT, " + T1COL_3 + " TEXT)" ;
-        sqLiteDatabase.execSQL(query);
+        sqLiteDatabase.execSQL(queryLogin);
+        String queryCustRegis=  "CREATE TABLE " + TABLE2_NAME + "(" + T2COL_1 +
+                " INTEGER PRIMARY KEY, " + T2COL_2 + " TEXT, " + T2COL_3 + " TEXT, "+T2COL_4+" TEXT, "+T2COL_5+" DATE)" ;
+        sqLiteDatabase.execSQL(queryCustRegis);
 
     }
 
