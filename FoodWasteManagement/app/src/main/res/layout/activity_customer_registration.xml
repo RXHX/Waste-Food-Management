@@ -8,7 +8,7 @@
     tools:context=".CustomerRegistration">
 
     <TextView
-        android:id="@+id/txtTitleCustRegistration"
+        android:id="@+id/txtTitleManagerRegistration"
         android:layout_width="278dp"
         android:layout_height="43dp"
         android:layout_marginStart="124dp"
@@ -24,7 +24,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/edTxtUserNameManager"
         android:layout_width="326dp"
         android:layout_height="55dp"
         android:layout_marginStart="41dp"
@@ -39,11 +39,11 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtTitleCustRegistration"
+        app:layout_constraintTop_toBottomOf="@+id/txtTitleManagerRegistration"
         tools:ignore="TextContrastCheck" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/edTxtPasswordManager"
         android:layout_width="327dp"
         android:layout_height="46dp"
         android:layout_marginStart="42dp"
@@ -59,11 +59,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
+        app:layout_constraintTop_toBottomOf="@+id/edTxtUserNameManager"
         tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/edTxtFullNameManager"
         android:layout_width="317dp"
         android:layout_height="55dp"
         android:layout_marginStart="45dp"
@@ -78,12 +78,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword"
+        app:layout_constraintTop_toBottomOf="@+id/edTxtPasswordManager"
         tools:ignore="TextContrastCheck"
         tools:textSize="20sp" />
 
     <EditText
-        android:id="@+id/editTextDate"
+        android:id="@+id/edTxtRestaurantName"
         android:layout_width="322dp"
         android:layout_height="56dp"
         android:layout_marginStart="47dp"
@@ -99,7 +99,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2"
+        app:layout_constraintTop_toBottomOf="@+id/edTxtFullNameManager"
         tools:ignore="TextContrastCheck" />
 
     <Button
@@ -116,6 +116,6 @@
         app:cornerRadius="10sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextDate"
+        app:layout_constraintTop_toBottomOf="@+id/edTxtRestaurantName"
         tools:ignore="TextContrastCheck" />
 </androidx.constraintlayout.widget.ConstraintLayout>

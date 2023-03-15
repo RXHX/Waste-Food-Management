@@ -15,5 +15,8 @@
     <string name="registerName">FullName</string>
     <string name="txtDob">DateOfBirth</string>
     <string name="txtSubmit">Submit</string>
+    <string name="edTxtRestName">Restaurant Name</string>
+    <string name="edTxtLocation">Location</string>
+    <string name="edPhoneNumber">Phone Number</string>
 
 </resources>

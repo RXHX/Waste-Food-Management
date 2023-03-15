@@ -16,10 +16,10 @@ public class CustomerRegistration extends AppCompatActivity {
         setContentView(R.layout.activity_customer_registration);
         databaseHelper=new DatabaseHelper(this);
         Button btnSubmit=findViewById(R.id.btnSubmit);
-        EditText uName=findViewById(R.id.editTextTextPersonName);
-        EditText pass=findViewById(R.id.editTextTextPassword);
-        EditText fullName=findViewById(R.id.editTextTextPersonName2);
-        EditText date=findViewById(R.id.editTextDate);
+        EditText uName=findViewById(R.id.edTxtUserNameManager);
+        EditText pass=findViewById(R.id.edTxtPasswordManager);
+        EditText fullName=findViewById(R.id.edTxtFullNameManager);
+        EditText date=findViewById(R.id.edTxtRestaurantName);
 
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             boolean isInserted;
