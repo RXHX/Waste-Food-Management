@@ -19,15 +19,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     final static String T1COL_3 = "Password";
     final static String T1COL_4 = "FullName";
     final static String T1COL_5 = "DOB";
-
     final static String T1COL_6 = "RestaurantName";
-
     final static String T1COL_7 = "Location";
-
     final static String T1COL_8 = "PhoneNumber";
 
     // Table for Profile
-
     final static String TABLE2_NAME = "Profile_table";
     final static String T2COL_1 = "ID";
     final static String T2COL_2 = "Username";
@@ -36,8 +32,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     final static String T2COL_5 = "StudentOption";
     final static String T2COL_6 = "Organization";
     final static String T2COL_7 = "StudentID";
-
-
 
 
     public DatabaseHelper(@Nullable Context context) {
