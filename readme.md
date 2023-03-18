@@ -1,7 +1,7 @@
 # FoodManagement System #
 
 
-  
+  ## Add the Database path, Where to see the Database structure in Android ##
 ## Request : Only to do push command, don't do pull command follow the below commands only ## 
 ## Steps you can follow if you want to do git task  ##
    <ul>
