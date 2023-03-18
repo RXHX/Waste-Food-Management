@@ -8,7 +8,6 @@
     <string name="btnForgetPass">Forgot Password ?</string>
     <string name="btnSignCust">Sign Up As a Customer</string>
     <string name="btnSignManager">Sign Up As a Manager</string>
-
     <string name="userRegister">Registration</string>
     <string name="registerUser">Username</string>
     <string name="registerPassword">Password</string>
@@ -18,5 +17,15 @@
     <string name="edTxtRestName">Restaurant Name</string>
     <string name="edTxtLocation">Location</string>
     <string name="edPhoneNumber">Phone Number</string>
+    <string name="btnsearchRestaurant">Search for a restaurent</string>
+    <string name="btnOrderfood">Order Food</string>
+    <string name="btnOrderDetails">View an order details and status</string>
+    <string name="btnOrderHistory">View Order History</string>
+    <string name="btnupdate">View/Edit user profile</string>
+    <string name="btnLogOutuser">Log out</string>
+    <string name="btnAddremove">Add/Remove food items</string>
+    <string name="btnReminder">Send a reminder</string>
+    <string name="btnReports">Generate reports</string>
+
 
 </resources>

@@ -36,6 +36,18 @@ public class Login extends AppCompatActivity {
             }
         });
 
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Login.this,CustomerProfile.class));
+            }
+        });
 
+//        btnLogin.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startActivity(new Intent(Login.this,ManagerProfile.class));
+//            }
+//        });
     }
 }
