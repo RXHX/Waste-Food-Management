@@ -25,7 +25,5 @@ public class SplashScreen extends AppCompatActivity {
         Timer timer = new Timer();
         timer.schedule(task,5000);
 
-
-
     }
 }
