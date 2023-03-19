@@ -10,7 +10,7 @@ import androidx.annotation.Nullable;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     final static String DATABASE_NAME = "WASTE_MANAGEMENT.db";
-    final static int DATABASE_VERSION = 3;
+    final static int DATABASE_VERSION = 8;
 
     // Table for registration table
     final static String TABLE1_NAME ="Registration_table";
@@ -34,6 +34,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     final static String T2COL_7 = "StudentID";
 
 
+    // Table for Login table
+    final static String TABLE3_NAME ="Login_table";
+    final static String T3COL_1 = "Id";
+    final static String T3COL_2 = "UserName";
+    final static String T3COL_3 = "Password";
+
+
+
+
     public DatabaseHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         SQLiteDatabase database = this.getWritableDatabase();
@@ -41,10 +50,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-//        String query = "CREATE TABLE " + TABLE1_NAME + "(" + T1COL_1 +
-//                " INTEGER PRIMARY KEY, " + T1COL_2 + " TEXT, " + T1COL_3 + " TEXT)" ;
-//        sqLiteDatabase.execSQL(query);
-              String query=  "CREATE TABLE " + TABLE1_NAME + "(" + T1COL_1 +
+
+        String query=  "CREATE TABLE " + TABLE1_NAME + "(" + T1COL_1 +
                 " INTEGER, " + T1COL_2 + " TEXT PRIMARY KEY, " + T1COL_3 + " TEXT, "+T1COL_4+" TEXT, "+T1COL_5+" DATE, "
                        +T1COL_6+" TEXT, "+T1COL_7+" TEXT, "+T1COL_8+" TEXT)" ;
         sqLiteDatabase.execSQL(query);
@@ -53,6 +60,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                         +T2COL_6+" TEXT, "+T2COL_7+" TEXT)" ;
                 sqLiteDatabase.execSQL(query);
 
+            query = "CREATE TABLE "+ TABLE3_NAME + "("+ T3COL_1 +" INTEGER, "+ T3COL_2+" TEXT PRIMARY KEY, "+T3COL_3+" TEXT)";
+            sqLiteDatabase.execSQL(query);
     }
 
     @Override
@@ -60,31 +69,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                           int olderVersion, int newerVersion) {
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE1_NAME);
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE2_NAME);
-//        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS Login_table");
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE3_NAME);
         onCreate(sqLiteDatabase);
     }
 
-//    public boolean addDataLogin(String loginName,String password){
-//        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
-//        ContentValues values = new ContentValues();
-//        values.put(T1COL_2,loginName);
-//        values.put(T1COL_3,password);
 
-//
-//        long l = sqLiteDatabase.insert(TABLE1_NAME,null,values);
-//        if(l > 0)
-//            return true;
-//        else
-//            return false;
-//    }
 
-    public boolean addDataCustomerReg(String username,String password,String fullName,String DOB){
+    public boolean addDataCustomerReg(String username,String password,String fullName,String DOB,String PhoneNumber){
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(T1COL_2,username);
         values.put(T1COL_3,password);
         values.put(T1COL_4,fullName);
         values.put(T1COL_5,DOB);
+        values.put(T1COL_8,PhoneNumber);
 
         long l = sqLiteDatabase.insert(TABLE1_NAME,null,values);
         if(l > 0)
@@ -92,6 +90,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         else
             return false;
     }
+
+    public boolean addLogin(String username,String password){
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(T3COL_2,username);
+        values.put(T3COL_3,password);
+        long l = sqLiteDatabase.insert(TABLE3_NAME,null,values);
+        if(l > 0)
+            return true;
+        else
+            return false;
+    }
+
     public boolean addDataManagerReg(String username,String password,String fullName,String restaurantName,String location,String phoneNumber){
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues values = new ContentValues();

@@ -2,6 +2,7 @@ package com.example.foodwaste;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -36,12 +37,15 @@ EditText uName,password,fullName,restName,location,phoneNumber;
                         phoneNumber.getText().toString());
                 if(isInserted){
                     Toast.makeText(ManagerRegistration.this,"data added",Toast.LENGTH_LONG).show();
+                    databaseHelper.addLogin(uName.getText().toString(),
+                            password.getText().toString());
                     uName.setText("");
                     password.setText("");
                     fullName.setText("");
                     restName.setText("");
                     location.setText("");
                     phoneNumber.setText("");
+                    startActivity(new Intent(ManagerRegistration.this,Login.class));
                 }
                 else{
                     Toast.makeText(ManagerRegistration.this,"data not added",Toast.LENGTH_LONG).show();

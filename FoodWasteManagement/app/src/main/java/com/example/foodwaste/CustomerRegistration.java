@@ -2,6 +2,7 @@ package com.example.foodwaste;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -20,6 +21,7 @@ public class CustomerRegistration extends AppCompatActivity {
         EditText pass=findViewById(R.id.edTxtPasswordManager);
         EditText fullName=findViewById(R.id.edTxtFullNameManager);
         EditText date=findViewById(R.id.edTxtRestaurantName);
+        EditText phoneNum = findViewById(R.id.editTextPhone);
 
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             boolean isInserted;
@@ -28,13 +30,23 @@ public class CustomerRegistration extends AppCompatActivity {
                 isInserted = databaseHelper.addDataCustomerReg(uName.getText().toString(),
                         pass.getText().toString(),
                         fullName.getText().toString(),
-                        date.getText().toString());
+                        date.getText().toString(),
+                        phoneNum.getText().toString()
+                        );
+
                 if(isInserted){
                     Toast.makeText(CustomerRegistration.this,"data added",Toast.LENGTH_LONG).show();
+                    databaseHelper.addLogin(uName.getText().toString(),
+                            pass.getText().toString());
                     uName.setText("");
                     pass.setText("");
                     fullName.setText("");
                     date.setText("");
+                    phoneNum.setText("");
+
+                    startActivity(new Intent(CustomerRegistration.this,Login.class));
+
+
                 }
                 else{
                     Toast.makeText(CustomerRegistration.this,"data not added",Toast.LENGTH_LONG).show();
