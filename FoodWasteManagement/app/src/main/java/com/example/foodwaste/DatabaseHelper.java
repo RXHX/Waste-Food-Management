@@ -131,29 +131,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
+    public boolean updatePassword(int id,String c){
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(T3COL_3,c);
+        int u = sqLiteDatabase.update(TABLE3_NAME,contentValues,"UserName=?",
+                new String[]{Integer.toString(id)});
+        if(u>0)
+            return true;
+        else
+            return false;
+    }
 
 
-//    public boolean deleteRec(int id){
-//        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
-//        int d = sqLiteDatabase.delete(TABLE1_NAME,"Id=?",
-//                new String[]{Integer.toString(id)});
-//        if(d>0)
-//            return true;
-//        else
-//            return false;
-//    }
 
-//    public boolean updateRec(int id,String c){
-//        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
-//        ContentValues contentValues = new ContentValues();
-//        contentValues.put(T1COL_4,c);
-//        int u = sqLiteDatabase.update(TABLE1_NAME,contentValues,"id=?",
-//                new String[]{Integer.toString(id)});
-//        if(u>0)
-//            return true;
-//        else
-//            return false;
-//    }
 }
 
 

@@ -27,6 +27,8 @@
     <string name="btnReminder">Send a reminder</string>
     <string name="btnReports">Generate reports</string>
     <string name="txtPhoneNumber">Enter Phone Number</string>
+    <string name="rePass">Re-Enter Password</string>
+    <string name="newPass">NewPassword</string>
 
 
 </resources>
