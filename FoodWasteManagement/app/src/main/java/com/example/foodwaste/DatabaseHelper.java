@@ -10,7 +10,7 @@ import androidx.annotation.Nullable;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     final static String DATABASE_NAME = "WASTE_MANAGEMENT.db";
-    final static int DATABASE_VERSION = 8;
+    final static int DATABASE_VERSION = 9;
 
     // Table for registration table
     final static String TABLE1_NAME ="Registration_table";
@@ -39,6 +39,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     final static String T3COL_1 = "Id";
     final static String T3COL_2 = "UserName";
     final static String T3COL_3 = "Password";
+    final static String T3COL_4 = "Type";
 
 
 
@@ -60,7 +61,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                         +T2COL_6+" TEXT, "+T2COL_7+" TEXT)" ;
                 sqLiteDatabase.execSQL(query);
 
-            query = "CREATE TABLE "+ TABLE3_NAME + "("+ T3COL_1 +" INTEGER, "+ T3COL_2+" TEXT PRIMARY KEY, "+T3COL_3+" TEXT)";
+            query = "CREATE TABLE "+ TABLE3_NAME + "("+ T3COL_1 +" INTEGER, "+ T3COL_2+" TEXT PRIMARY KEY, "+T3COL_3+" TEXT, "+ T3COL_4 + " TEXT)";
             sqLiteDatabase.execSQL(query);
     }
 
@@ -91,11 +92,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return false;
     }
 
-    public boolean addLogin(String username,String password){
+    public boolean addLogin(String username,String password,String type){
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(T3COL_2,username);
         values.put(T3COL_3,password);
+        values.put(T3COL_4,type);
         long l = sqLiteDatabase.insert(TABLE3_NAME,null,values);
         if(l > 0)
             return true;
@@ -121,14 +123,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-//    public Cursor viewData(){
-//        SQLiteDatabase database = this.getReadableDatabase();
-//        String query = "SELECT * FROM " + TABLE1_NAME;
-//        Cursor cursor = database.rawQuery(query,null);
-//        //String query = "SELECT * FROM " + TABLE1_NAME + " WHERE Id = ?";
-//        //Cursor cursor = database.rawQuery(query,new String[]{"2"});
-//        return cursor;
-//    }
+    public Cursor checkLogin(){
+        SQLiteDatabase database = this.getReadableDatabase();
+        String query = "SELECT * FROM " + TABLE3_NAME;
+        Cursor cursor = database.rawQuery(query,null);
+        return cursor;
+    }
+
+
+
 
 //    public boolean deleteRec(int id){
 //        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();

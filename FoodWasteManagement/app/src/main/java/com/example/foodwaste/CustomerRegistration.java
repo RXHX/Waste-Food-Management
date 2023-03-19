@@ -37,7 +37,7 @@ public class CustomerRegistration extends AppCompatActivity {
                 if(isInserted){
                     Toast.makeText(CustomerRegistration.this,"data added",Toast.LENGTH_LONG).show();
                     databaseHelper.addLogin(uName.getText().toString(),
-                            pass.getText().toString());
+                            pass.getText().toString(),"Customer");
                     uName.setText("");
                     pass.setText("");
                     fullName.setText("");

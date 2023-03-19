@@ -38,7 +38,7 @@ EditText uName,password,fullName,restName,location,phoneNumber;
                 if(isInserted){
                     Toast.makeText(ManagerRegistration.this,"data added",Toast.LENGTH_LONG).show();
                     databaseHelper.addLogin(uName.getText().toString(),
-                            password.getText().toString());
+                            password.getText().toString(),"Manager");
                     uName.setText("");
                     password.setText("");
                     fullName.setText("");
