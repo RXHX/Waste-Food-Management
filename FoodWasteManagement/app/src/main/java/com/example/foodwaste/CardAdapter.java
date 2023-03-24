@@ -10,6 +10,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import org.w3c.dom.Text;
+
 public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
 
     public String[] restaurantName = {"Subway","Mcdonalds"};
@@ -41,6 +43,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
         ImageView itemImage;
         TextView itemTitle;
         TextView itemDetail;
+        TextView Fake;  // remove it asap
 
 
         public ViewHolder(@NonNull View itemView) {
