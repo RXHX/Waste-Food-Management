@@ -25,15 +25,15 @@ public class ForgotPassword extends AppCompatActivity {
 
 
         btnSubmit.setOnClickListener(new View.OnClickListener() {
-            int intId;
+            String Id;
             boolean isUpdated;
             @Override
             public void onClick(View v) {
 
                 if(password.getText().toString().equals(repassword.getText().toString()))
                 {
-                    intId = Integer.parseInt(username.getText().toString());
-                    isUpdated = databaseHelper.updatePassword(intId,password.getText().toString());
+                    Id = username.getText().toString();
+                    isUpdated = databaseHelper.updatePassword(Id,password.getText().toString());
                     if(isUpdated){
                         Toast.makeText(ForgotPassword.this,"record is updated",
                                 Toast.LENGTH_LONG).show();

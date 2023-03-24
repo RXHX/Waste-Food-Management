@@ -10,7 +10,7 @@ import androidx.annotation.Nullable;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     final static String DATABASE_NAME = "WASTE_MANAGEMENT.db";
-    final static int DATABASE_VERSION = 9;
+    final static int DATABASE_VERSION = 11;
 
     // Table for registration table
     final static String TABLE1_NAME ="Registration_table";
@@ -131,17 +131,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public boolean updatePassword(int id,String c){
+    public boolean updatePassword(String id,String c){
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(T3COL_3,c);
         int u = sqLiteDatabase.update(TABLE3_NAME,contentValues,"UserName=?",
-                new String[]{Integer.toString(id)});
+                new String[]{id});
         if(u>0)
             return true;
         else
+        {
+          System.out.println("No update happened");
             return false;
-    }
+
+        }
+                }
 
 
 
