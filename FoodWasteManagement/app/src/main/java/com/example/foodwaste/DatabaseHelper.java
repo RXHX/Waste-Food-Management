@@ -41,6 +41,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     final static String T3COL_3 = "Password";
     final static String T3COL_4 = "Type";
 
+    // Table for Restaurant
+    final static String TABLE4_NAME ="Restaurant_table";
+    final static String T4COL_1 = "Id";
+    final static String T4COL_2 = "UserName";
+    final static String T4COL_3 = "RestaurantName";
+    final static String T4COL_4 = "RestaurantLocation";
+    final static String T4COL_5 = "Item";
+    final static String T4COL_6 = "Price";
+    final static String T4COL_7 = "Qty";
+
+
+
 
 
 
@@ -54,7 +66,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         String query=  "CREATE TABLE " + TABLE1_NAME + "(" + T1COL_1 +
                 " INTEGER, " + T1COL_2 + " TEXT PRIMARY KEY, " + T1COL_3 + " TEXT, "+T1COL_4+" TEXT, "+T1COL_5+" DATE, "
-                       +T1COL_6+" TEXT, "+T1COL_7+" TEXT, "+T1COL_8+" TEXT)" ;
+                       +T1COL_6+" TEXT, "+T1COL_7+" TEXT)";
         sqLiteDatabase.execSQL(query);
                 query="CREATE TABLE " + TABLE2_NAME + "(" + T2COL_1 +
                         " INTEGER, " + T2COL_2 + " TEXT PRIMARY KEY, " + T2COL_3 + " TEXT, "+T2COL_4+" TEXT, "+T2COL_5+" DATE, "
@@ -63,6 +75,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
             query = "CREATE TABLE "+ TABLE3_NAME + "("+ T3COL_1 +" INTEGER, "+ T3COL_2+" TEXT PRIMARY KEY, "+T3COL_3+" TEXT, "+ T3COL_4 + " TEXT)";
             sqLiteDatabase.execSQL(query);
+
+
+        query = "CREATE TABLE "+ TABLE3_NAME + "("+ T3COL_1 +" INTEGER, "+ T3COL_2+" TEXT PRIMARY KEY, "+T3COL_3+" TEXT, "+ T3COL_4 + " TEXT)";
+        sqLiteDatabase.execSQL(query);
+
+        query = "CREATE TABLE "+ TABLE4_NAME + "("+ T4COL_1 +" INTEGER, "+ T4COL_2+" TEXT PRIMARY KEY, "+T4COL_3+" TEXT, "+ T4COL_4 + " TEXT,"+ T4COL_5 +"TEXT,"+T4COL_6 +"TEXT, "+T4COL_7+"TEXT)";
+        sqLiteDatabase.execSQL(query);
+
     }
 
     @Override
@@ -71,6 +91,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE1_NAME);
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE2_NAME);
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE3_NAME);
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE4_NAME);
         onCreate(sqLiteDatabase);
     }
 

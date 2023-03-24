@@ -29,6 +29,11 @@
     <string name="txtPhoneNumber">Enter Phone Number</string>
     <string name="rePass">Re-Enter Password</string>
     <string name="newPass">NewPassword</string>
+    <string name="restName"></string>
+    <string name="Item1"> Item</string>
+    <string name="ItemPrice1">Price</string>
+    <string name="Add">Add</string>
+    <string name="qty">qty </string>
 
 
 </resources>

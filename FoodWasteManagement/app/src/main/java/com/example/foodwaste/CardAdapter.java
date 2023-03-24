@@ -14,9 +14,9 @@ import org.w3c.dom.Text;
 
 public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
 
-    public String[] restaurantName = {"Subway","Mcdonalds"};
-    public String[] details = {"Buy Subway","Buy Mcdonalds"};
-    public  int [] images = {R.drawable.subway,R.drawable.mcdo};
+    public String[] restaurantName = {"Subway","Mcdonalds","A&W","Chipotle","Quesado"};
+    public String[] details = {"Buy Subway","Buy Mcdonalds","Buy A&W","Buy Chipotle","Buy Quesado"};
+    public  int [] images = {R.drawable.subway,R.drawable.mcdo,R.drawable.aw,R.drawable.chipotle,R.drawable.quesado};
 
     @NonNull
     @Override
@@ -43,7 +43,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
         ImageView itemImage;
         TextView itemTitle;
         TextView itemDetail;
-        TextView Fake;  // remove it asap
+
 
 
         public ViewHolder(@NonNull View itemView) {
@@ -57,11 +57,10 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
                 @Override
                 public void onClick(View v) {
                     int position = getAdapterPosition();
-
-                   // Snackbar.make(v, "Click Detected on Item" + position, Snackbar.LENGTH_LONG).setAction("Action", null).show();
-
                     Intent intent = new Intent(itemView.getContext(), RestaurantMenu.class);
+                    intent.putExtra("pos",position);
                     itemView.getContext().startActivity(intent);
+
                 }
             });
 
