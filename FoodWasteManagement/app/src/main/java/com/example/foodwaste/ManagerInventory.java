@@ -20,22 +20,17 @@ public class ManagerInventory extends AppCompatActivity {
         databaseHelper=new DatabaseHelper(this);
         TextView restaurantName = findViewById(R.id.restaurantName);
         TextView restaurantLocation = findViewById(R.id.restaurantLoc);
-        EditText ItemName = findViewById(R.id.ItemName);
-        EditText ItemPrice = findViewById(R.id.ItemPrice);
-        EditText ItemQty = findViewById(R.id.ItemQty);
+        EditText ItemName =  findViewById(R.id.ItemName);
+        EditText ItemPrice =  findViewById(R.id.ItemPrice);
+        EditText ItemQty =  findViewById(R.id.ItemQty);
         Button add = findViewById(R.id.btnAdd);
         Intent intent = getIntent();
 
         String Name = intent.getStringExtra("RestaurantName");
         String Location = intent.getStringExtra("RestaurantLocation");
-        String UserName = intent.getStringExtra("Username");
-        String FoodItemName = ItemName.getText().toString();
-       String FoodItemPrice = ItemPrice.getText().toString();
-       String FoodItemQty =  ItemQty.getText().toString();
+        String UserName = intent.getStringExtra("UserName");
 
-       System.out.println("Food Item Name : "+FoodItemName);
 
-        System.out.println("Food Item Price : "+FoodItemPrice);
         restaurantName.setText(Name);
         restaurantLocation.setText(Location);
 
@@ -43,7 +38,17 @@ public class ManagerInventory extends AppCompatActivity {
        add.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
+               String FoodItemName = ItemName.getText().toString();
+               String FoodItemPrice = ItemPrice.getText().toString();
+               String FoodItemQty =  ItemQty.getText().toString();
+
+
+
                databaseHelper.addRestaurantInfo(UserName,Name,Location,FoodItemName,FoodItemPrice,FoodItemQty);
+              ItemName.setText("");
+              ItemQty.setText("");
+              ItemPrice.setText("");
+
            }
        });
 

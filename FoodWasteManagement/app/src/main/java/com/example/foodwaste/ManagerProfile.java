@@ -27,7 +27,8 @@ public class ManagerProfile extends AppCompatActivity {
                 String UserName = "";
                 if(c.getCount()>0){
                     while(c.moveToNext()) {
-                        UserName = c.getString(1);
+                         UserName = c.getString(1);
+                        System.out.println("Username in Manager Profile 1"+UserName);
                          RestaurantName = c.getString(5);
                         RestaurantLocation = c.getString(6);
 
@@ -38,7 +39,7 @@ public class ManagerProfile extends AppCompatActivity {
                 intent.putExtra("RestaurantName",RestaurantName);
 
                 intent.putExtra("RestaurantLocation",RestaurantLocation);
-
+                System.out.println("Username in Manager Profile 2"+UserName);
 
                 intent.putExtra("UserName",UserName);
 
