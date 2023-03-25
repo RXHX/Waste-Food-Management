@@ -33,7 +33,7 @@
         app:layout_constraintTop_toBottomOf="@+id/restaurantName" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/ItemName"
         android:layout_width="228dp"
         android:layout_height="55dp"
         android:layout_marginStart="48dp"
@@ -49,7 +49,7 @@
         tools:ignore="TextContrastCheck" />
 
     <EditText
-        android:id="@+id/editTextNumber2"
+        android:id="@+id/ItemPrice"
         android:layout_width="228dp"
         android:layout_height="55dp"
         android:layout_marginStart="34dp"
@@ -61,11 +61,11 @@
         android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
+        app:layout_constraintTop_toBottomOf="@+id/ItemName"
         tools:ignore="TextContrastCheck" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnAdd"
         android:layout_width="228dp"
         android:layout_height="70dp"
         android:layout_marginStart="51dp"
@@ -75,10 +75,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumber3" />
+        app:layout_constraintTop_toBottomOf="@+id/ItemQty" />
 
     <EditText
-        android:id="@+id/editTextNumber3"
+        android:id="@+id/ItemQty"
         android:layout_width="246dp"
         android:layout_height="70dp"
         android:layout_marginStart="36dp"
@@ -89,7 +89,7 @@
         android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumber2"
+        app:layout_constraintTop_toBottomOf="@+id/ItemPrice"
         tools:ignore="TextContrastCheck"
         android:importantForAutofill="no" />
 

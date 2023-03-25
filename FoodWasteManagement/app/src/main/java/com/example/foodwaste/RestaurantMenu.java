@@ -17,15 +17,15 @@ public class RestaurantMenu extends AppCompatActivity {
 
     int position=0;
 
-
+    ArrayList<HashMap<String,String>> aList1 = null;
 
 
     public ArrayList createMenu(int position)
     {
 
 
-
         ArrayList<HashMap<String,String>> aList1 = new ArrayList<HashMap<String,String>>();
+
 
         if(position == 0)
         {
@@ -111,6 +111,7 @@ public class RestaurantMenu extends AppCompatActivity {
 
         System.out.println("position is"+position);
 
+
         ArrayList<HashMap<String,String>> aList = new ArrayList<HashMap<String,String>>();
 
         switch (position)
@@ -129,12 +130,6 @@ public class RestaurantMenu extends AppCompatActivity {
             default: break;
 
         }
-
-
-
-
-
-
 
         String from [] = {"images","txt"};
         int to [] = {R.id.itemImage,R.id.txtDescription};

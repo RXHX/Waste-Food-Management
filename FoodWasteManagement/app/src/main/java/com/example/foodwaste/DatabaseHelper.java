@@ -10,7 +10,7 @@ import androidx.annotation.Nullable;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     final static String DATABASE_NAME = "WASTE_MANAGEMENT.db";
-    final static int DATABASE_VERSION = 11;
+    final static int DATABASE_VERSION = 14;
 
     // Table for registration table
     final static String TABLE1_NAME ="Registration_table";
@@ -66,7 +66,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         String query=  "CREATE TABLE " + TABLE1_NAME + "(" + T1COL_1 +
                 " INTEGER, " + T1COL_2 + " TEXT PRIMARY KEY, " + T1COL_3 + " TEXT, "+T1COL_4+" TEXT, "+T1COL_5+" DATE, "
-                       +T1COL_6+" TEXT, "+T1COL_7+" TEXT)";
+                       +T1COL_6+" TEXT, "+T1COL_7+" TEXT, "+T1COL_8+" TEXT)";
         sqLiteDatabase.execSQL(query);
                 query="CREATE TABLE " + TABLE2_NAME + "(" + T2COL_1 +
                         " INTEGER, " + T2COL_2 + " TEXT PRIMARY KEY, " + T2COL_3 + " TEXT, "+T2COL_4+" TEXT, "+T2COL_5+" DATE, "
@@ -77,10 +77,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             sqLiteDatabase.execSQL(query);
 
 
-        query = "CREATE TABLE "+ TABLE3_NAME + "("+ T3COL_1 +" INTEGER, "+ T3COL_2+" TEXT PRIMARY KEY, "+T3COL_3+" TEXT, "+ T3COL_4 + " TEXT)";
-        sqLiteDatabase.execSQL(query);
 
-        query = "CREATE TABLE "+ TABLE4_NAME + "("+ T4COL_1 +" INTEGER, "+ T4COL_2+" TEXT PRIMARY KEY, "+T4COL_3+" TEXT, "+ T4COL_4 + " TEXT,"+ T4COL_5 +"TEXT,"+T4COL_6 +"TEXT, "+T4COL_7+"TEXT)";
+        query = "CREATE TABLE "+ TABLE4_NAME + "("+ T4COL_1 +" INTEGER, "+ T4COL_2+" TEXT PRIMARY KEY, "+T4COL_3+" TEXT, "+ T4COL_4 + " TEXT, "+ T4COL_5 +" TEXT, "+T4COL_6 +" INTEGER, "+T4COL_7+" INTEGER)";
         sqLiteDatabase.execSQL(query);
 
     }
@@ -150,6 +148,30 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor cursor = database.rawQuery(query,null);
         return cursor;
     }
+
+    public Cursor getRegistrationInfo(){
+        SQLiteDatabase database = this.getReadableDatabase();
+        String query = "SELECT * FROM " + TABLE1_NAME;
+        Cursor cursor = database.rawQuery(query,null);
+        return cursor;
+    }
+
+    public boolean addRestaurantInfo(String username,String RestaurantName,String RestaurantLocation,String Item,String Price,String Qty) {
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(T4COL_2,username);
+        values.put(T4COL_3,RestaurantName);
+        values.put(T4COL_4,RestaurantLocation);
+        values.put(T4COL_5,Item);
+        values.put(T4COL_6,Price);
+        values.put(T4COL_7,Qty);
+        long l = sqLiteDatabase.insert(TABLE4_NAME,null,values);
+        if(l > 0)
+            return true;
+        else
+            return false;
+    }
+
 
 
     public boolean updatePassword(String id,String c){
