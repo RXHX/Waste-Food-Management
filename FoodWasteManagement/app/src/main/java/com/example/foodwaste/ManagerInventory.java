@@ -30,7 +30,8 @@ public class ManagerInventory extends AppCompatActivity {
         String Location = intent.getStringExtra("RestaurantLocation");
         String UserName = intent.getStringExtra("UserName");
 
-
+        System.out.println("Res Name: "+Name);
+        System.out.println("Res Price: "+Location);
         restaurantName.setText(Name);
         restaurantLocation.setText(Location);
 
@@ -41,7 +42,9 @@ public class ManagerInventory extends AppCompatActivity {
                String FoodItemName = ItemName.getText().toString();
                String FoodItemPrice = ItemPrice.getText().toString();
                String FoodItemQty =  ItemQty.getText().toString();
-
+               System.out.println("FoodItemName: Cool"+FoodItemName);
+               System.out.println("FoodItemPrice: P"+FoodItemPrice);
+               System.out.println("FoodItemQty: Q"+FoodItemQty);
 
 
                databaseHelper.addRestaurantInfo(UserName,Name,Location,FoodItemName,FoodItemPrice,FoodItemQty);

@@ -14,6 +14,8 @@ import org.w3c.dom.Text;
 
 public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
 
+
+
     public String[] restaurantName = {"Subway","Mcdonalds","A&W","Chipotle","Quesado"};
     public String[] details = {"Buy Subway","Buy Mcdonalds","Buy A&W","Buy Chipotle","Buy Quesado"};
     public  int [] images = {R.drawable.subway,R.drawable.mcdo,R.drawable.aw,R.drawable.chipotle,R.drawable.quesado};

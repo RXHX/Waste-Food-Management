@@ -20,7 +20,9 @@ public class ManagerProfile extends AppCompatActivity {
         addOrRemove.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Cursor c = databaseHelper.getRegistrationInfo();
+                Intent userIntent = getIntent();
+                String[] currentUser  = {userIntent.getStringExtra("UserName")};
+                Cursor c = databaseHelper.getLoggedUserInfo(currentUser);
                 StringBuilder str = new StringBuilder();
                 String RestaurantName = "";
                 String RestaurantLocation = "";
@@ -28,7 +30,6 @@ public class ManagerProfile extends AppCompatActivity {
                 if(c.getCount()>0){
                     while(c.moveToNext()) {
                          UserName = c.getString(1);
-                        System.out.println("Username in Manager Profile 1"+UserName);
                          RestaurantName = c.getString(5);
                         RestaurantLocation = c.getString(6);
 
@@ -39,10 +40,12 @@ public class ManagerProfile extends AppCompatActivity {
                 intent.putExtra("RestaurantName",RestaurantName);
 
                 intent.putExtra("RestaurantLocation",RestaurantLocation);
-                System.out.println("Username in Manager Profile 2"+UserName);
+
 
                 intent.putExtra("UserName",UserName);
-
+                    System.out.println("Restaurant UserName:"+userIntent);
+                    System.out.println("Restaurant Name:"+RestaurantName);
+                     System.out.println("Restaurant Location:"+RestaurantLocation);
                startActivity(intent);
 
 

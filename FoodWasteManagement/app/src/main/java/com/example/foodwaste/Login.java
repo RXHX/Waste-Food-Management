@@ -65,16 +65,20 @@ public class Login extends AppCompatActivity {
                  System.out.println(c.getString(3));
                         if(c.getString(1).equals(username.getText().toString()) && c.getString(2).equals(password.getText().toString()))
                         {
-                           if(c.getString(3).equals("Manager"))
+                            Intent intent = null;
+                            if(c.getString(3).equals("Manager"))
                            {
-                             startActivity(new Intent(Login.this,ManagerProfile.class));
+                                intent = new Intent(Login.this,ManagerProfile.class);
+
                            }
                            else if(c.getString(3).equals("Customer")){
-                             startActivity(new Intent(Login.this,CustomerProfile.class));
+                                intent = new Intent(Login.this,CustomerProfile.class);
+
+
                            }
-                           else {
-                               System.out.println("error");
-                           }
+                            intent.putExtra("UserName",c.getString(1));
+                            startActivity(intent);
+
                         }
                         else {
                         System.out.println("Invalid Credentials");
