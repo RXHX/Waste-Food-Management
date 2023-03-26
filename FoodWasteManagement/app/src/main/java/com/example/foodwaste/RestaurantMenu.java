@@ -1,6 +1,7 @@
 package com.example.foodwaste;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -16,13 +17,23 @@ public class RestaurantMenu extends AppCompatActivity {
 
 
     int position=0;
+   public String UserName;
 
     ArrayList<HashMap<String,String>> aList1 = null;
 
 
-    public ArrayList createMenu(int position)
+    public ArrayList createMenu(String UserName)
     {
 
+//        DatabaseHelper databaseHelper = new DatabaseHelper(this);
+//        String[] user =  {UserName};
+//        Cursor c = databaseHelper.getClickedResaturantMenuInfo(user);
+//        for(int i=0; c.moveToNext() != false; i++)
+//        {
+//
+//
+//
+//        }
 
         ArrayList<HashMap<String,String>> aList1 = new ArrayList<HashMap<String,String>>();
 
@@ -109,29 +120,39 @@ public class RestaurantMenu extends AppCompatActivity {
         Intent intent = getIntent();
         int position = intent.getIntExtra("pos",-1);
 
+        DatabaseHelper databaseHelper = new DatabaseHelper(this);
         System.out.println("position is"+position);
+        String[] pos =  {String.valueOf(position+1)};
+        System.out.println("Information: ");
+        System.out.println(pos[0]);
+        Cursor c = databaseHelper.getClickedResaturantInfo(pos);
+        for(int i=0; c.moveToNext() != false; i++)
+        {
+           UserName = c.getString(1);
+        }
+        System.out.println("position is"+position);
+        System.out.println("UserName is"+UserName);
 
 
         ArrayList<HashMap<String,String>> aList = new ArrayList<HashMap<String,String>>();
+       aList = createMenu(UserName);
 
-
-
-        switch (position)
-        {
-            case 0:
-                     aList = createMenu(position);
-                     break;
-            case 1: aList = createMenu(position);
-                    break;
-            case 2:  aList = createMenu(position);
-                          break;
-            case 3:    aList = createMenu(position);
-                         break;
-            case 4:   aList = createMenu(position);
-                      break;
-            default: break;
-
-        }
+//        switch (position)
+//        {
+//            case 0:
+//                     aList = createMenu(position);
+//                     break;
+//            case 1: aList = createMenu(position);
+//                    break;
+//            case 2:  aList = createMenu(position);
+//                          break;
+//            case 3:    aList = createMenu(position);
+//                         break;
+//            case 4:   aList = createMenu(position);
+//                      break;
+//            default: break;
+//
+//        }
 
         String from [] = {"images","txt"};
         int to [] = {R.id.itemImage,R.id.txtDescription};

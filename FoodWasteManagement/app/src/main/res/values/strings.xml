@@ -34,6 +34,8 @@
     <string name="ItemPrice1">Price</string>
     <string name="Add">Add</string>
     <string name="qty">qty</string>
+    <string name="menuItemPrice">0</string>
+    <string name="ItemQty">0</string>
 
 
 </resources>

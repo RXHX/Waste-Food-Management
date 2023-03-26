@@ -18,8 +18,6 @@ public class CustomerSearchForRestaurant extends AppCompatActivity {
         setContentView(R.layout.activity_customer_search_for_restaurant);
         DatabaseHelper  databaseHelper = new DatabaseHelper(this);
         Cursor c = databaseHelper.getRestaurantInfo();
-        System.out.println("Length is"+c.getCount());
-        new CardAdapter(c.getCount());
         recyclerView = findViewById(R.id.recyclerView);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);

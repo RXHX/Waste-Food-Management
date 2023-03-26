@@ -21,7 +21,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
 
 
 
-      public String[] restaurantName = new String[100];
+      public String[] restaurantName;
       public String[] location;
       public int[] images;
       public int restaurantListLength;
@@ -48,8 +48,8 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
 
             for(int i=0; c.moveToNext() != false; i++)
             {
-                restaurantName[i] = c.getString(1);
-                location[i] = c.getString(2);
+                restaurantName[i] = c.getString(2);
+                location[i] = c.getString(3);
                 images[i] = R.drawable.chipotle;
             }
 
@@ -95,8 +95,10 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
                 @Override
                 public void onClick(View v) {
                     int position = getAdapterPosition();
+                    CardAdapter.this.getItemId(position);
                     Intent intent = new Intent(itemView.getContext(), RestaurantMenu.class);
                     intent.putExtra("pos",position);
+
                     itemView.getContext().startActivity(intent);
 
                 }
