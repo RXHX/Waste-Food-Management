@@ -45,9 +45,7 @@ public class ManagerInventory extends AppCompatActivity {
                System.out.println("FoodItemName: Cool"+FoodItemName);
                System.out.println("FoodItemPrice: P"+FoodItemPrice);
                System.out.println("FoodItemQty: Q"+FoodItemQty);
-
-
-               databaseHelper.addRestaurantInfo(UserName,Name,Location,FoodItemName,FoodItemPrice,FoodItemQty);
+               databaseHelper.addRestaurantMenuInfo(UserName,FoodItemName,FoodItemPrice,FoodItemQty);
               ItemName.setText("");
               ItemQty.setText("");
               ItemPrice.setText("");

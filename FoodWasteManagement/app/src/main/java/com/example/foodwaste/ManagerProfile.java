@@ -29,9 +29,9 @@ public class ManagerProfile extends AppCompatActivity {
                 String UserName = "";
                 if(c.getCount()>0){
                     while(c.moveToNext()) {
-                         UserName = c.getString(1);
-                         RestaurantName = c.getString(5);
-                        RestaurantLocation = c.getString(6);
+                         UserName = c.getString(0);
+                         RestaurantName = c.getString(4);
+                        RestaurantLocation = c.getString(5);
 
                     }
                     }

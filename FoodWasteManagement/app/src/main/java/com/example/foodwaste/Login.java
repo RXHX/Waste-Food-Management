@@ -60,23 +60,19 @@ public class Login extends AppCompatActivity {
                 StringBuilder str = new StringBuilder();
                 if(c.getCount()>0){
                     while(c.moveToNext()){
-                 System.out.println(c.getString(1));
-                 System.out.println(c.getString(2));
-                 System.out.println(c.getString(3));
-                        if(c.getString(1).equals(username.getText().toString()) && c.getString(2).equals(password.getText().toString()))
+
+                        if(c.getString(0).equals(username.getText().toString()) && c.getString(1).equals(password.getText().toString()))
                         {
                             Intent intent = null;
-                            if(c.getString(3).equals("Manager"))
+                            if(c.getString(2).equals("Manager"))
                            {
                                 intent = new Intent(Login.this,ManagerProfile.class);
 
                            }
-                           else if(c.getString(3).equals("Customer")){
+                           else if(c.getString(2).equals("Customer")){
                                 intent = new Intent(Login.this,CustomerProfile.class);
-
-
                            }
-                            intent.putExtra("UserName",c.getString(1));
+                            intent.putExtra("UserName",c.getString(0));
                             startActivity(intent);
 
                         }
