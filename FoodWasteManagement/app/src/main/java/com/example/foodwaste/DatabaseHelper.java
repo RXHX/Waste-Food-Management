@@ -65,6 +65,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase database = this.getWritableDatabase();
     }
 
+
+
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
 

@@ -1,6 +1,9 @@
 package com.example.foodwaste;
 
+
 import android.content.Intent;
+
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,21 +15,23 @@ import androidx.annotation.NonNull;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import org.w3c.dom.Text;
+
 
 public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
 
 
 
       public String[] restaurantName = new String[100];
-      public String[] location = new String[100];
+      public String[] location;
+      public int[] images;
+      public int restaurantListLength;
+
+    public CardAdapter(int  restaurantListLength) {
+
+        this.restaurantListLength = restaurantListLength;
+    }
 
 
-
- //   public String[] restaurantName = {"Subway","Mcdonalds","A&W","Chipotle","Quesado"};
- //   public String[] location = {"Buy Subway","Buy Mcdonalds","Buy A&W","Buy Chipotle","Buy Quesado"};
-
-    public  int [] images = {R.drawable.subway,R.drawable.mcdo,R.drawable.aw,R.drawable.chipotle,R.drawable.quesado};
 
     @NonNull
     @Override
@@ -34,12 +39,18 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.select_restaurants,parent,false);
         DatabaseHelper  databaseHelper = new DatabaseHelper(parent.getContext());
         Cursor c = databaseHelper.getRestaurantInfo();
+        restaurantName = new String[c.getCount()];
+        location = new String[c.getCount()];
+
+        images = new int[c.getCount()];
+
         if(c.getCount()>0){
 
             for(int i=0; c.moveToNext() != false; i++)
             {
                 restaurantName[i] = c.getString(1);
                 location[i] = c.getString(2);
+                images[i] = R.drawable.chipotle;
             }
 
         }
@@ -58,10 +69,12 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
         holder.itemImage.setImageResource(images[position]);
 
     }
+    
+
 
     @Override
     public int getItemCount() {
-        return restaurantName.length;
+        return restaurantListLength;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

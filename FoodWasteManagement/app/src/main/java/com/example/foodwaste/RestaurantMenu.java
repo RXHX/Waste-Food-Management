@@ -114,6 +114,8 @@ public class RestaurantMenu extends AppCompatActivity {
 
         ArrayList<HashMap<String,String>> aList = new ArrayList<HashMap<String,String>>();
 
+
+
         switch (position)
         {
             case 0:

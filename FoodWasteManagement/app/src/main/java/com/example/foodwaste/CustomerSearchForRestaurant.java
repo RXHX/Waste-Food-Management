@@ -1,5 +1,6 @@
 package com.example.foodwaste;
 
+import android.database.Cursor;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,15 +11,19 @@ public class CustomerSearchForRestaurant extends AppCompatActivity {
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
     RecyclerView.Adapter adapter;
-
+    DatabaseHelper databaseHelper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_search_for_restaurant);
+        DatabaseHelper  databaseHelper = new DatabaseHelper(this);
+        Cursor c = databaseHelper.getRestaurantInfo();
+        System.out.println("Length is"+c.getCount());
+        new CardAdapter(c.getCount());
         recyclerView = findViewById(R.id.recyclerView);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        adapter = new CardAdapter();
+        adapter = new CardAdapter(c.getCount());
         recyclerView.setAdapter(adapter);
     }
 
