@@ -70,7 +70,9 @@ public class Login extends AppCompatActivity {
                              startActivity(new Intent(Login.this,ManagerProfile.class));
                            }
                            else if(c.getString(3).equals("Customer")){
-                             startActivity(new Intent(Login.this,CustomerProfile.class));
+                               Intent customerUsername = new Intent(Login.this,CustomerProfile.class);
+                               customerUsername.putExtra("username",username.getText().toString());
+                             startActivity(customerUsername);
                            }
                            else {
                                System.out.println("error");

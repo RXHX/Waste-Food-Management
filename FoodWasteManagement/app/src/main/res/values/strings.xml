@@ -29,6 +29,13 @@
     <string name="txtPhoneNumber">Enter Phone Number</string>
     <string name="rePass">Re-Enter Password</string>
     <string name="newPass">NewPassword</string>
+    <string name="hobbies">Enter Hobbies </string>
+    <string name="favouriteFood">Enter Favourite Food </string>
+    <string name="studentOrganization">Enter Student Organization </string>
+    <string name="studentID">Enter Student ID </string>
+    <string name="btn_update">Update Profile</string>
+    <string name="isStudent">Are you a Student</string>
+
 
 
 </resources>
