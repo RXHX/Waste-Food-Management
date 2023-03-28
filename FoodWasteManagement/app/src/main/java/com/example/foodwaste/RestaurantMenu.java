@@ -13,6 +13,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
 
 public class RestaurantMenu extends AppCompatActivity {
 
@@ -21,6 +23,7 @@ public class RestaurantMenu extends AppCompatActivity {
    public String UserName;
 
     ArrayList<HashMap<String,String>> aList1 = null;
+   ArrayList<Integer> menuItem = new ArrayList<Integer>();
 
 
     public ArrayList createMenu(String UserName)
@@ -59,7 +62,8 @@ public class RestaurantMenu extends AppCompatActivity {
            hm.put("images",Integer.toString(images[i]));
            hm.put("price",Integer.toString(price[i]));
            hm.put("qty",Integer.toString(qty[i]));
-           hm.put("checkBox"," ");
+           hm.put("check"," ");
+
            aList1.add(hm);
 
        }
@@ -94,7 +98,7 @@ public class RestaurantMenu extends AppCompatActivity {
 
         ArrayList<HashMap<String,String>> aList = new ArrayList<HashMap<String,String>>();
        aList = createMenu(UserName);
-        String from [] = {"images","txt","qty","price","checkBox"};
+        String from [] = {"images","txt","qty","price","check"};
         int to [] = {R.id.itemImage,R.id.txtDescription,R.id.qty,R.id.price,R.id.checkBox};
 
         SimpleAdapter adapter = new SimpleAdapter(RestaurantMenu.this,aList,R.layout.menulist_container,from,to);
@@ -104,11 +108,34 @@ public class RestaurantMenu extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                //here you can use the position to determine what checkbox to check
+                //this assumes that you have an array of your checkboxes as well. called checkbox
+                System.out.println("Clicked");
+                CheckBox checkBox = (CheckBox) view.findViewById(R.id.checkBox);
+                 boolean status = true;
+                for(int i=0;i<menuItem.size();i++)
+                {
+                    if(menuItem.get(i) == position)
+                    {
+                        System.out.println("Double Clicked");
+                       status = false;
+                    }
+
+                }
+                menuItem.add(position);
+                checkBox.setChecked(status);
 
 
-                System.out.println("View info"+view);
+
+
+
+
             }
+
         });
+
+
+
     }
 
 }
