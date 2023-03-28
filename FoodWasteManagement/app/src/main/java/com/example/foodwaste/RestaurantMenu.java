@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
@@ -24,87 +25,44 @@ public class RestaurantMenu extends AppCompatActivity {
 
     public ArrayList createMenu(String UserName)
     {
+        DatabaseHelper databaseHelper = new DatabaseHelper(this);
+        String[] user =  {UserName};
+        Cursor c = databaseHelper.getClickedResaturantMenuInfo(user);
 
-//        DatabaseHelper databaseHelper = new DatabaseHelper(this);
-//        String[] user =  {UserName};
-//        Cursor c = databaseHelper.getClickedResaturantMenuInfo(user);
-//        for(int i=0; c.moveToNext() != false; i++)
-//        {
-//
-//
-//
-//        }
+        String[] description = new String[c.getCount()];
+        int[] images = new int[c.getCount()];
+        int[] qty = new int[c.getCount()];
+        int[] price = new int[c.getCount()];
 
         ArrayList<HashMap<String,String>> aList1 = new ArrayList<HashMap<String,String>>();
-
-
-        if(position == 0)
+        if(c.getCount() >0)
         {
-            String [] description0 = { "A","B"};
-            int [] images0 = {R.drawable.burger,R.drawable.fries};
-            for (int i =0;  i<description0.length; i++)
+            for(int i=0; c.moveToNext() != false; i++)
             {
-                HashMap<String,String> hm = new HashMap<>();
-                hm.put("txt",description0[i]);
-                hm.put("images",Integer.toString(images0[i]));
-                aList1.add(hm);
+                System.out.println("Column 1"+c.getString(2));
+                System.out.println("Column 2"+c.getInt(3));
+                description[i] = c.getString(2);
+                images[i] = R.drawable.burger;
+                price[i] = c.getInt(3);
+                qty[i] = c.getInt(4);
+
+
             }
-
-        }else if(position == 1)
-        {
-            String [] description1 = { "C","D"};
-            int [] images1 = {R.drawable.burger,R.drawable.fries};
-            for (int i =0;  i<description1.length; i++)
-            {
-                HashMap<String,String> hm = new HashMap<>();
-                hm.put("txt",description1[i]);
-                hm.put("images",Integer.toString(images1[i]));
-                aList1.add(hm);
-            }
-
-
-        }else if(position == 2)
-        {
-            String [] description2 = { "E","F"};
-            int [] images2 = {R.drawable.burger,R.drawable.fries};
-            for (int i =0;  i<description2.length; i++)
-            {
-                HashMap<String,String> hm = new HashMap<>();
-                hm.put("txt",description2[i]);
-                hm.put("images",Integer.toString(images2[i]));
-                aList1.add(hm);
-            }
-        }else if(position == 3)
-        {
-            String [] description3 = { "G","H"};
-            int [] images3 = {R.drawable.burger,R.drawable.fries};
-            for (int i =0;  i<description3.length; i++)
-            {
-                HashMap<String,String> hm = new HashMap<>();
-                hm.put("txt",description3[i]);
-                hm.put("images",Integer.toString(images3[i]));
-                aList1.add(hm);
-            }
-
-        }else if(position == 4)
-        {
-
-
-            String [] description4 = { "I","J"};
-            int [] images4 = {R.drawable.burger,R.drawable.fries};
-            for (int i =0;  i<description4.length; i++)
-            {
-                HashMap<String,String> hm = new HashMap<>();
-                hm.put("txt",description4[i]);
-                hm.put("images",Integer.toString(images4[i]));
-                aList1.add(hm);
-            }
-
         }
 
+       for(int i=0;i<description.length;i++)
+       {
+           HashMap<String,String> hm = new HashMap<>();
+           System.out.println("des"+description[i]);
+           System.out.println("img"+images[i]);
+           hm.put("txt",description[i]);
+           hm.put("images",Integer.toString(images[i]));
+           hm.put("price",Integer.toString(price[i]));
+           hm.put("qty",Integer.toString(qty[i]));
+           hm.put("checkBox"," ");
+           aList1.add(hm);
 
-
-
+       }
 
 
   return aList1;
@@ -136,26 +94,8 @@ public class RestaurantMenu extends AppCompatActivity {
 
         ArrayList<HashMap<String,String>> aList = new ArrayList<HashMap<String,String>>();
        aList = createMenu(UserName);
-
-//        switch (position)
-//        {
-//            case 0:
-//                     aList = createMenu(position);
-//                     break;
-//            case 1: aList = createMenu(position);
-//                    break;
-//            case 2:  aList = createMenu(position);
-//                          break;
-//            case 3:    aList = createMenu(position);
-//                         break;
-//            case 4:   aList = createMenu(position);
-//                      break;
-//            default: break;
-//
-//        }
-
-        String from [] = {"images","txt"};
-        int to [] = {R.id.itemImage,R.id.txtDescription};
+        String from [] = {"images","txt","qty","price","checkBox"};
+        int to [] = {R.id.itemImage,R.id.txtDescription,R.id.qty,R.id.price,R.id.checkBox};
 
         SimpleAdapter adapter = new SimpleAdapter(RestaurantMenu.this,aList,R.layout.menulist_container,from,to);
         ListView listView = findViewById(R.id.listView);
@@ -164,15 +104,9 @@ public class RestaurantMenu extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                switch (position)
-                {
-                    case 0:
 
-                        break;
-                    case 1:
 
-                        break;
-                }
+                System.out.println("View info"+view);
             }
         });
     }

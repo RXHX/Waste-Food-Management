@@ -36,6 +36,7 @@
     <string name="qty">qty</string>
     <string name="menuItemPrice">0</string>
     <string name="ItemQty">0</string>
+    <string name="txtCheck"></string>
 
 
 </resources>

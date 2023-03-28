@@ -152,7 +152,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public Cursor getClickedResaturantMenuInfo(String[] UserName)
     {
         SQLiteDatabase database = this.getReadableDatabase();
-        String query = "SELECT * FROM " + TABLE4_NAME + " WHERE UserName = ?";
+        String query = "SELECT * FROM " + TABLE5_NAME + " WHERE UserName = ?";
         Cursor cursor = database.rawQuery(query,UserName);
         return cursor;
     }
