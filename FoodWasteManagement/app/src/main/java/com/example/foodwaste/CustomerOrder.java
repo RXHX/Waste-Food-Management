@@ -13,7 +13,9 @@ public class CustomerOrder extends AppCompatActivity {
         setContentView(R.layout.activity_customer_order);
 
         Intent intent = getIntent();
-        System.out.println("Transfered Data"+intent.getParcelableArrayExtra("menuList"));
+        System.out.println("Transfered Data"+ intent.getParcelableExtra("menuList"));
+        //intent.getBundleExtra("menuList");
+
 
     }
 }

@@ -24,6 +24,7 @@ public class RestaurantMenu extends AppCompatActivity {
 
 
     ArrayList<HashMap<String,String>> aList1 = null;
+    ArrayList<HashMap<String,String>> Cart = new ArrayList<>();
    ArrayList<Integer> menuItem = new ArrayList<Integer>();
    Menu[] menu = new Menu[1000];
 
@@ -154,21 +155,34 @@ public class RestaurantMenu extends AppCompatActivity {
 
                   for(int j =0; j <menuItem.size();j++)
                   {
+                      HashMap<String,String> items = new HashMap<>();
                       String itemName = aList1.get(menuItem.get(j)).get("txt");
                       String price = aList1.get(menuItem.get(j)).get("price");
                       String Qty = aList1.get(menuItem.get(j)).get("qty");
-
+                        items.put("itemName",itemName);
+                        items.put("price",price);
+                        items.put("qty",Qty);
                       System.out.println("Name:"+itemName);
                       System.out.println("Price:"+price);
                       System.out.println("Qty:"+Qty);
 
-                      Menu menu1 = new Menu(itemName,price,Qty);
+                      Cart.add(items);
+
+
+                      Menu menu1 = new Menu();
+                      menu1.setItemName(itemName);
+                      menu1.setPrice(price);
+                      menu1.setPrice(Qty);
                       menu[j] = menu1;
+
+
                   }
 
                     Intent intent = new Intent(RestaurantMenu.this,CustomerOrder.class);
-                  //  intent.putExtra("menuList",menu);
-                 intent.putExtra("menuList",menu);
+                  intent.putExtra("menuList",menu);
+               //  intent.putExtras(menu);
+                //   intent.putExtra("menuList",menu);
+               //intent.putStringArrayListExtra(Cart);
 
                     startActivity(intent);
 
