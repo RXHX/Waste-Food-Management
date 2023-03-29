@@ -7,14 +7,51 @@
     android:background="#FF9800"
     tools:context=".UpdateProfile">
 
+
+    <TextView
+        android:id="@+id/isUserStudent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="109dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="186dp"
+        android:text="@string/isUserStudent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/rGroup"
+        android:layout_width="166dp"
+        android:layout_height="97dp"
+        android:layout_marginStart="79dp"
+        android:layout_marginTop="39dp"
+        android:layout_marginEnd="166dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/isUserStudent">
+
+        <RadioButton
+            android:id="@+id/rdb_No"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="@string/rdb_yes" />
+
+        <RadioButton
+            android:id="@+id/rdb_Yes"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="@string/rdb_no" />
+
+    </RadioGroup>
+
     <EditText
         android:id="@+id/hobbies"
-        android:layout_width="325dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="42dp"
-        android:layout_marginTop="9dp"
-        android:layout_marginEnd="44dp"
-        android:layout_marginBottom="117dp"
+        android:layout_width="327dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="43dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="41dp"
         android:backgroundTint="@color/white"
         android:ems="10"
         android:hint="@string/hobbies"
@@ -24,18 +61,16 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rGroup"
         tools:ignore="TextContrastCheck" />
-
 
     <EditText
         android:id="@+id/studentID"
-        android:layout_width="325dp"
+        android:layout_width="237dp"
         android:layout_height="55dp"
-        android:layout_marginStart="41dp"
-        android:layout_marginTop="23dp"
-        android:layout_marginEnd="44dp"
-        android:layout_marginBottom="35dp"
+        android:layout_marginStart="62dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="112dp"
         android:backgroundTint="@color/white"
         android:ems="10"
         android:hint="@string/studentID"
@@ -43,9 +78,8 @@
         android:textColor="#B71C1C"
         android:textColorHint="#B71C1C"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_update"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/studentOrganization"
         tools:ignore="TextContrastCheck" />
@@ -54,10 +88,9 @@
         android:id="@+id/studentOrganization"
         android:layout_width="325dp"
         android:layout_height="55dp"
-        android:layout_marginStart="41dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="44dp"
-        android:layout_marginBottom="23dp"
+        android:layout_marginStart="43dp"
+        android:layout_marginTop="21dp"
+        android:layout_marginEnd="43dp"
         android:backgroundTint="@color/white"
         android:ems="10"
         android:hint="@string/studentOrganization"
@@ -65,20 +98,18 @@
         android:textColor="#B71C1C"
         android:textColorHint="#B71C1C"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/studentID"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/isStudent"
+        app:layout_constraintTop_toBottomOf="@+id/favouriteFood"
         tools:ignore="TextContrastCheck" />
 
     <EditText
         android:id="@+id/favouriteFood"
         android:layout_width="325dp"
         android:layout_height="55dp"
-        android:layout_marginStart="41dp"
-        android:layout_marginTop="39dp"
-        android:layout_marginEnd="44dp"
+        android:layout_marginStart="43dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="43dp"
         android:backgroundTint="@color/white"
         android:ems="10"
         android:hint="@string/favouriteFood"
@@ -87,7 +118,6 @@
         android:textColorHint="#B71C1C"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/hobbies"
         tools:ignore="TextContrastCheck" />
@@ -96,29 +126,13 @@
         android:id="@+id/btn_update"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="112dp"
-        android:layout_marginTop="33dp"
-        android:layout_marginEnd="139dp"
-        android:layout_marginBottom="46dp"
+        android:layout_marginStart="108dp"
+        android:layout_marginTop="31dp"
+        android:layout_marginEnd="143dp"
         android:text="@string/btn_update"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/studentID" />
-
-    <CheckBox
-        android:id="@+id/isStudent"
-        android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="42dp"
-        android:layout_marginTop="27dp"
-        android:layout_marginEnd="45dp"
-        android:layout_marginBottom="20dp"
-        android:text="@string/isStudent"
-        app:layout_constraintBottom_toTopOf="@+id/studentOrganization"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/favouriteFood" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

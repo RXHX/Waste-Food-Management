@@ -34,7 +34,9 @@
     <string name="studentOrganization">Enter Student Organization </string>
     <string name="studentID">Enter Student ID </string>
     <string name="btn_update">Update Profile</string>
-    <string name="isStudent">Are you a Student</string>
+    <string name="isUserStudent">Are you a Student</string>
+    <string name="rdb_yes">Yes</string>
+    <string name="rdb_no">No</string>
 
 
 

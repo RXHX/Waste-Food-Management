@@ -147,8 +147,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
                 }
 
+       public boolean updateProfile(String username,String hobbies,String favouriteFood,String studentOption,String organization,String studentId)
+       {
+           SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+           ContentValues values = new ContentValues();
 
+           values.put(T2COL_2,username);
+           values.put(T2COL_3,hobbies);
+           values.put(T2COL_4,favouriteFood);
+          values.put(T2COL_5,studentOption);
+           values.put(T2COL_6,organization);
+           values.put(T2COL_7,studentId);
 
+           long l = sqLiteDatabase.insert(TABLE2_NAME,null,values);
+           if(l > 0)
+               return true;
+           else
+               return false;
+       }
 
 }
 
