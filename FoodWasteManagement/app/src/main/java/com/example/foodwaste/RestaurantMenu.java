@@ -5,7 +5,9 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
@@ -13,18 +15,17 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Set;
 
 public class RestaurantMenu extends AppCompatActivity {
 
 
-    int position=0;
+  public  int pos;
    public String UserName;
+
 
     ArrayList<HashMap<String,String>> aList1 = null;
    ArrayList<Integer> menuItem = new ArrayList<Integer>();
-
+   Menu[] menu = new Menu[1000];
 
     public ArrayList createMenu(String UserName)
     {
@@ -77,7 +78,7 @@ public class RestaurantMenu extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_restaurant_menu);
-
+        Button AddToCart =   findViewById(R.id.AddToCart);
 
         Intent intent = getIntent();
         int position = intent.getIntExtra("pos",-1);
@@ -92,12 +93,14 @@ public class RestaurantMenu extends AppCompatActivity {
         {
            UserName = c.getString(1);
         }
+
         System.out.println("position is"+position);
         System.out.println("UserName is"+UserName);
 
 
         ArrayList<HashMap<String,String>> aList = new ArrayList<HashMap<String,String>>();
        aList = createMenu(UserName);
+       aList1 = aList;
         String from [] = {"images","txt","qty","price","check"};
         int to [] = {R.id.itemImage,R.id.txtDescription,R.id.qty,R.id.price,R.id.checkBox};
 
@@ -110,29 +113,71 @@ public class RestaurantMenu extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //here you can use the position to determine what checkbox to check
                 //this assumes that you have an array of your checkboxes as well. called checkbox
-                System.out.println("Clicked");
                 CheckBox checkBox = (CheckBox) view.findViewById(R.id.checkBox);
-                 boolean status = true;
-                for(int i=0;i<menuItem.size();i++)
-                {
-                    if(menuItem.get(i) == position)
-                    {
-                        System.out.println("Double Clicked");
-                       status = false;
+                checkBox.setVisibility(View.VISIBLE);
+                System.out.println("Item Selected");
+                checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                        if(isChecked)
+                        {
+                            System.out.println("Item Checked");
+                            menuItem.add(position);
+                        }
+                        else{
+                            System.out.println("Item Unchecked");
+                            for(int i = 0 ;i<menuItem.size();i++)
+                            {
+                                if(menuItem.get(i) == position)
+                                {
+                                    System.out.println("Item to be removed at position"+position);
+                                    menuItem.remove(i);
+                                }
+                            }
+                        }
+
+
+
                     }
-
-                }
-                menuItem.add(position);
-                checkBox.setChecked(status);
-
-
-
-
-
-
+                });
             }
 
         });
+
+
+         AddToCart.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+               System.out.println("Got Here MenuItem"+aList1);
+               System.out.println("Got Here SelectedItem"+menuItem);
+
+
+                  for(int j =0; j <menuItem.size();j++)
+                  {
+                      String itemName = aList1.get(menuItem.get(j)).get("txt");
+                      String price = aList1.get(menuItem.get(j)).get("price");
+                      String Qty = aList1.get(menuItem.get(j)).get("qty");
+
+                      System.out.println("Name:"+itemName);
+                      System.out.println("Price:"+price);
+                      System.out.println("Qty:"+Qty);
+
+                      Menu menu1 = new Menu(itemName,price,Qty);
+                      menu[j] = menu1;
+                  }
+
+                    Intent intent = new Intent(RestaurantMenu.this,CustomerOrder.class);
+                  //  intent.putExtra("menuList",menu);
+                 intent.putExtra("menuList",menu);
+
+                    startActivity(intent);
+
+             }
+         });
+
+
+
+
 
 
 
