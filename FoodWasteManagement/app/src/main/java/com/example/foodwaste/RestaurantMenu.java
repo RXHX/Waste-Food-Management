@@ -1,6 +1,8 @@
 package com.example.foodwaste;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
@@ -13,20 +15,24 @@ import android.widget.SimpleAdapter;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.gson.Gson;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
 
 public class RestaurantMenu extends AppCompatActivity {
 
 
-  public  int pos;
+    public  int pos;
    public String UserName;
 
-
     ArrayList<HashMap<String,String>> aList1 = null;
-    ArrayList<HashMap<String,String>> Cart = new ArrayList<>();
+    ArrayList<Menu> Cart = new ArrayList<>();
    ArrayList<Integer> menuItem = new ArrayList<Integer>();
-   Menu[] menu = new Menu[1000];
+
 
     public ArrayList createMenu(String UserName)
     {
@@ -165,26 +171,16 @@ public class RestaurantMenu extends AppCompatActivity {
                       System.out.println("Name:"+itemName);
                       System.out.println("Price:"+price);
                       System.out.println("Qty:"+Qty);
-
-                      Cart.add(items);
-
-
                       Menu menu1 = new Menu();
                       menu1.setItemName(itemName);
                       menu1.setPrice(price);
-                      menu1.setPrice(Qty);
-                      menu[j] = menu1;
-
-
+                      menu1.setQty(Qty);
+                      Cart.add(menu1);
                   }
 
                     Intent intent = new Intent(RestaurantMenu.this,CustomerOrder.class);
-                  intent.putExtra("menuList",menu);
-               //  intent.putExtras(menu);
-                //   intent.putExtra("menuList",menu);
-               //intent.putStringArrayListExtra(Cart);
-
-                    startActivity(intent);
+                 intent.putExtra("MenuItem", Cart);
+                 startActivity(intent);
 
              }
          });

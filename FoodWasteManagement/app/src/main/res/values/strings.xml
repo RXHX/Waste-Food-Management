@@ -37,6 +37,8 @@
     <string name="menuItemPrice">0</string>
     <string name="ItemQty">0</string>
     <string name="txtCheck"></string>
+    <string name="orderSumary">Order Sumary</string>
+    <string name="indexNum">SNo</string>
 
 
 </resources>
