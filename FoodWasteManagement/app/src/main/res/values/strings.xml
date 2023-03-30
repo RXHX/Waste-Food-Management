@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">FoodWaste</string>
-
     <string name="imgLogo">an Image</string>
     <string name="edUserName">Username...</string>
     <string name="edPassword">Password...</string>
@@ -33,12 +32,19 @@
     <string name="Item1">Item</string>
     <string name="ItemPrice1">Price</string>
     <string name="Add">Add</string>
-    <string name="qty">qty</string>
+    <string name="qty">Qty</string>
     <string name="menuItemPrice">0</string>
     <string name="ItemQty">0</string>
     <string name="txtCheck"></string>
-    <string name="orderSumary">Order Sumary</string>
+    <string name="orderSumary">Bill Sumary</string>
     <string name="indexNum">SNo</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="bill">View Bill</string>
+    <string name="placeOrder">Place Order</string>
+    <string name="BillBeforeTax">Total Bill Before Tax</string>
+    <string name="BillAfterTax">Total Bill After Tax</string>
+    <string name="deliveryOption">Choose Delivery Options</string>
 
 
 </resources>
