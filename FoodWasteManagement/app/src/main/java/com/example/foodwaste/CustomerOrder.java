@@ -75,7 +75,7 @@ public class CustomerOrder extends AppCompatActivity {
         listView.setAdapter(adapter);
 
         billBeforeTax.setText(sum+"");
-        double tax = 0.5;
+        double tax = 0.05;
         tax =   sum + sum * tax;
         billAfterTax.setText(tax+"");
 

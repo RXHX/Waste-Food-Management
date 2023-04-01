@@ -21,6 +21,7 @@ DatabaseHelper databaseHelper;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_profile);
         TextView userName = findViewById(R.id.loggedUser);
+        Button logout = findViewById(R.id.btnLogOutuser);
         databaseHelper = new DatabaseHelper(this);
         SharedPreferences sh = getSharedPreferences("MySharedPref", Context.MODE_PRIVATE);
         String[] userInfo = {sh.getString("UserName","")};
@@ -40,6 +41,13 @@ DatabaseHelper databaseHelper;
 
                 Intent intent = new Intent(new Intent(CustomerProfile.this,CustomerSearchForRestaurant.class));
                 startActivity(intent);
+            }
+        });
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(CustomerProfile.this,Login.class));
             }
         });
     }
