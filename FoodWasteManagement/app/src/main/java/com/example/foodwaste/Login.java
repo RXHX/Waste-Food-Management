@@ -3,6 +3,7 @@ package com.example.foodwaste;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
@@ -38,12 +39,12 @@ public class Login extends AppCompatActivity {
             }
         });
 
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(Login.this,CustomerProfile.class));
-            }
-        });
+//        btnLogin.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startActivity(new Intent(Login.this,CustomerProfile.class));
+//            }
+//        });
 
 
         btnForgot.setOnClickListener(new View.OnClickListener() {
@@ -73,6 +74,14 @@ public class Login extends AppCompatActivity {
                                 intent = new Intent(Login.this,CustomerProfile.class);
                            }
                             intent.putExtra("UserName",c.getString(0));
+
+                            SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref",MODE_PRIVATE);
+
+                            SharedPreferences.Editor myEdit = sharedPreferences.edit();
+
+                            myEdit.putString("UserName", c.getString(0));
+                            myEdit.commit();
+
                             startActivity(intent);
 
                         }

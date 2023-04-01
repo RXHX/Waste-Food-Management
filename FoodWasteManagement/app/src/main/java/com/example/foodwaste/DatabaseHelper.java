@@ -10,7 +10,7 @@ import androidx.annotation.Nullable;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     final static String DATABASE_NAME = "WASTE_MANAGEMENT.db";
-    final static int DATABASE_VERSION = 25;
+    final static int DATABASE_VERSION = 27;
 
     // Table for registration table
     final static String TABLE1_NAME ="Registration_table";
@@ -57,9 +57,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     // Table for Delivery
     final static String TABLE6_NAME="Delivery_table";
-    final static String T6COL_1 = "UserName";
-    final static String T6COL_2 = "DeliveryType";
-    final static String T6COL_3 = "DeliveryAddress";
+    final static String T6COL_1 = "Id";
+    final static String T6COL_2 = "UserName";
+    final static String T6COL_3 = "DeliveryType";
+    final static String T6COL_4 = "DeliveryAddress";
 
 
 
@@ -96,7 +97,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         query = "CREATE TABLE "+ TABLE5_NAME + "("+ T5COL_1 +" INTEGER PRIMARY KEY, "+ T5COL_2+" TEXT, "+T5COL_3+" TEXT, "+T5COL_4+" INTEGER, "+T5COL_5 +" INTEGER)";
         sqLiteDatabase.execSQL(query);
 
-        query = "CREATE TABLE "+ TABLE6_NAME + "("+ T6COL_1 +" TEXT, "+ T6COL_2+" TEXT PRIMARY KEY, "+T6COL_3+" TEXT)";
+        query = "CREATE TABLE "+ TABLE6_NAME + "("+ T6COL_1 +" INTEGER PRIMARY KEY, "+ T6COL_2+" TEXT, "+T6COL_3+" TEXT, "+T6COL_4+" TEXT)";
         sqLiteDatabase.execSQL(query);
 
 
@@ -187,6 +188,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
+    public boolean addDeliveryInformation(String username,String deliveryType,String deliveryAddress)
+    {
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(T6COL_2,username);
+        values.put(T6COL_3,deliveryType);
+        values.put(T6COL_4,deliveryAddress);
+        long l = sqLiteDatabase.insert(TABLE6_NAME,null,values);
+        if(l > 0)
+            return true;
+        else
+            return false;
+
+    }
+
+
     public Cursor checkLogin(){
         SQLiteDatabase database = this.getReadableDatabase();
         String query = "SELECT * FROM " + TABLE3_NAME;
@@ -194,10 +211,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
-    public Cursor getRegistrationInfo(){
+    public Cursor getRegistrationInfo(String[] UserName){
         SQLiteDatabase database = this.getReadableDatabase();
-        String query = "SELECT * FROM " + TABLE1_NAME;
-        Cursor cursor = database.rawQuery(query,null);
+        String query = "SELECT * FROM " + TABLE1_NAME+" Where UserName = ?";
+        Cursor cursor = database.rawQuery(query,UserName);
         return cursor;
     }
 
