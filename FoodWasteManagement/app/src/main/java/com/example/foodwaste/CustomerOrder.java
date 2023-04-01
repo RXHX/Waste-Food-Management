@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 
 
 import java.util.ArrayList;
@@ -33,6 +34,12 @@ public class CustomerOrder extends AppCompatActivity {
              ItemPrice[i] = menu.get(i).price;
 
          }
+       int sum = 0;
+
+        for(int i=0;i<menu.size();i++)
+        {
+            sum  = sum + Integer.parseInt(menu.get(i).price);
+        }
 
 
         for(int i=0;i<menu.size();i++)
@@ -46,7 +53,13 @@ public class CustomerOrder extends AppCompatActivity {
          }
 
         String[] from = {"name","qty","price"};
-        int[] to = {R.id.ItemName,R.id.ItemQty,R.id.ItemPrice};
+        int[] to = {R.id.ItmName,R.id.ItmQty,R.id.ItmPrice};
+
+        TextView billBeforeTax = findViewById(R.id.billBeforeTax);
+        TextView billAfterTax = findViewById(R.id.billAfterTax);
+
+
+
 
         System.out.println("List:"+aList);
 
@@ -57,8 +70,9 @@ public class CustomerOrder extends AppCompatActivity {
 
         listView.setAdapter(adapter);
 
-
-
-
+        billBeforeTax.setText(sum);
+        double tax = 0.5;
+        tax =  sum * tax;
+        billAfterTax.setText(tax+"");
     }
 }
