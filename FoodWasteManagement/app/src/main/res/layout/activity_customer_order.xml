@@ -83,6 +83,7 @@
         android:layout_marginStart="26dp"
         android:layout_marginTop="42dp"
         android:text="@string/ItemQty"
+        android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@+id/textView7"
         app:layout_constraintTop_toBottomOf="@+id/listview"
         tools:ignore="TextContrastCheck" />
@@ -105,6 +106,7 @@
         android:layout_marginStart="21dp"
         android:layout_marginTop="23dp"
         android:text="@string/ItemQty"
+        android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@+id/textView9"
         app:layout_constraintTop_toBottomOf="@+id/billBeforeTax"
         tools:ignore="TextContrastCheck" />

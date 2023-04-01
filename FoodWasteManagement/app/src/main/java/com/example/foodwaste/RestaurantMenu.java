@@ -181,6 +181,8 @@ public class RestaurantMenu extends AppCompatActivity {
                     Intent intent = new Intent(RestaurantMenu.this,CustomerOrder.class);
                  intent.putExtra("MenuItem", Cart);
                  startActivity(intent);
+                 Cart.clear();
+
 
              }
          });

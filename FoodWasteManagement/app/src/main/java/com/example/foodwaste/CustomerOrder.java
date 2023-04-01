@@ -70,9 +70,9 @@ public class CustomerOrder extends AppCompatActivity {
 
         listView.setAdapter(adapter);
 
-        billBeforeTax.setText(sum);
+        billBeforeTax.setText(sum+"");
         double tax = 0.5;
-        tax =  sum * tax;
+        tax =   sum + sum * tax;
         billAfterTax.setText(tax+"");
     }
 }
