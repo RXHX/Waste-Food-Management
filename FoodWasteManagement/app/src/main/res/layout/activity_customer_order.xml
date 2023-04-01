@@ -112,7 +112,7 @@
         tools:ignore="TextContrastCheck" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/deliveryOption"
         android:layout_width="275dp"
         android:layout_height="56dp"
         android:layout_marginStart="68dp"

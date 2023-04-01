@@ -10,7 +10,7 @@ import androidx.annotation.Nullable;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     final static String DATABASE_NAME = "WASTE_MANAGEMENT.db";
-    final static int DATABASE_VERSION = 24;
+    final static int DATABASE_VERSION = 25;
 
     // Table for registration table
     final static String TABLE1_NAME ="Registration_table";
@@ -55,6 +55,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     final static String T5COL_4 = "Price";
     final static String T5COL_5 = "Qty";
 
+    // Table for Delivery
+    final static String TABLE6_NAME="Delivery_table";
+    final static String T6COL_1 = "UserName";
+    final static String T6COL_2 = "DeliveryType";
+    final static String T6COL_3 = "DeliveryAddress";
+
+
 
 
 
@@ -89,6 +96,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         query = "CREATE TABLE "+ TABLE5_NAME + "("+ T5COL_1 +" INTEGER PRIMARY KEY, "+ T5COL_2+" TEXT, "+T5COL_3+" TEXT, "+T5COL_4+" INTEGER, "+T5COL_5 +" INTEGER)";
         sqLiteDatabase.execSQL(query);
 
+        query = "CREATE TABLE "+ TABLE6_NAME + "("+ T6COL_1 +" TEXT, "+ T6COL_2+" TEXT PRIMARY KEY, "+T6COL_3+" TEXT)";
+        sqLiteDatabase.execSQL(query);
+
+
 
 
     }
@@ -101,6 +112,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE3_NAME);
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE4_NAME);
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE5_NAME);
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE6_NAME);
         onCreate(sqLiteDatabase);
     }
 

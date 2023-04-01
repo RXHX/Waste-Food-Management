@@ -45,6 +45,12 @@
     <string name="BillBeforeTax">Total Bill Before Tax</string>
     <string name="BillAfterTax">Total Bill After Tax</string>
     <string name="deliveryOption">Choose Delivery Options</string>
+    <string name="deliveryOpt">Delivery Type</string>
+    <string name="rdbtn1">Pick Up</string>
+    <string name="rdbtn2">Deliver at Location</string>
+    <string name="delstatus">Confirm Delivery</string>
+    <string name="pickup">Your can pick up your order after 30 Minutes.</string>
+    <string name="loc">Location</string>
 
 
 </resources>
