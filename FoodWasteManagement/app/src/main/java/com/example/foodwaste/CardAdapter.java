@@ -15,6 +15,7 @@ import androidx.annotation.NonNull;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import org.w3c.dom.Text;
 
 
 public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
@@ -23,6 +24,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
 
       public String[] restaurantName;
       public String[] location;
+      public String[] restaurantReminder;
       public int[] images;
       public int restaurantListLength;
 
@@ -42,6 +44,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
         Cursor c = databaseHelper.getRestaurantInfo();
         restaurantName = new String[c.getCount()];
         location = new String[c.getCount()];
+        restaurantReminder = new String[c.getCount()];
 
         images = new int[c.getCount()];
 
@@ -51,6 +54,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
             {
                 restaurantName[i] = c.getString(2);
                 location[i] = c.getString(3);
+                restaurantReminder[i] = c.getString(4);
                 images[i] = R.drawable.chipotle;
             }
 
@@ -68,6 +72,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
         holder.itemTitle.setText(restaurantName[position]);
         holder.itemDetail.setText(location[position]);
         holder.itemImage.setImageResource(images[position]);
+        holder.reminder.setText(restaurantReminder[position]);
 
     }
     
@@ -82,8 +87,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
         ImageView itemImage;
         TextView itemTitle;
         TextView itemDetail;
-
-
+        TextView reminder;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -91,6 +95,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
             itemImage = itemView.findViewById(R.id.item_image);
             itemTitle = itemView.findViewById(R.id.item_title);
             itemDetail = itemView.findViewById(R.id.item_detail);
+            reminder = itemView.findViewById(R.id.reminder);
 
 
             itemView.setOnClickListener(new View.OnClickListener() {

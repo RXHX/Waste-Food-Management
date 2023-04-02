@@ -41,7 +41,7 @@ EditText uName,password,fullName,restName,location,phoneNumber;
                             password.getText().toString(),"Manager");
 
                     databaseHelper.addRestaurantInfo(uName.getText().toString(),restName.getText().toString(),
-                            location.getText().toString());
+                            location.getText().toString()," ");
                     uName.setText("");
                     password.setText("");
                     fullName.setText("");

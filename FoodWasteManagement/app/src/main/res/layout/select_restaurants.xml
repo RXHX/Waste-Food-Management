@@ -1,4 +1,5 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -13,8 +14,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/relativeLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="402dp"
+        android:layout_height="197dp"
         android:padding="16dp">
 
         <ImageView
@@ -41,15 +42,28 @@
 
         <TextView
             android:id="@+id/item_detail"
-            android:layout_width="236dp"
-            android:layout_height="16dp"
+            android:layout_width="237dp"
+            android:layout_height="34dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
+            android:textSize="20sp"
             app:layout_constraintLeft_toRightOf="@+id/item_image"
             app:layout_constraintStart_toEndOf="@+id/item_image"
             app:layout_constraintTop_toBottomOf="@+id/item_title">
 
         </TextView>
+
+        <TextView
+            android:id="@+id/reminder"
+            android:layout_width="212dp"
+            android:layout_height="58dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
+            android:text="@string/custReminder"
+            android:textColor="@color/design_default_color_error"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/item_detail" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

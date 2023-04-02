@@ -16,6 +16,9 @@ public class ManagerProfile extends AppCompatActivity {
         setContentView(R.layout.activity_manager_profile);
         databaseHelper=new DatabaseHelper(this);
         Button addOrRemove =  findViewById(R.id.btnAddremove);
+        Button managerLogout = findViewById(R.id.btnLogOutmanager);
+        Button sendReminder = findViewById(R.id.btnReminder);
+        Button generateReport = findViewById(R.id.btnReports);
 
         addOrRemove.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,5 +54,25 @@ public class ManagerProfile extends AppCompatActivity {
 
             }
         });
+        managerLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ManagerProfile.this,Login.class));
+            }
+        });
+
+        generateReport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+             startActivity(new Intent(ManagerProfile.this,ManagerGenerateReport.class));
+            }
+        });
+        sendReminder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ManagerProfile.this,ManagerReminder.class));
+            }
+        });
+
     }
 }

@@ -11,7 +11,7 @@ import androidx.annotation.Nullable;
 public class DatabaseHelper extends SQLiteOpenHelper {
     final static String DATABASE_NAME = "WASTE_MANAGEMENT.db";
 
-    final static int DATABASE_VERSION = 30;
+    final static int DATABASE_VERSION = 32;
 
 
     // Table for registration table
@@ -46,6 +46,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     final static String T4COL_2 = "UserName";
     final static String T4COL_3 = "RestaurantName";
     final static String T4COL_4 = "RestaurantLocation";
+    final static String T4COL_5 = "RestaurantReminder";
+
+
 
 
 
@@ -97,7 +100,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
 
-        query = "CREATE TABLE "+ TABLE4_NAME + "("+ T4COL_1 +" INTEGER PRIMARY KEY, "+ T4COL_2+" TEXT, "+T4COL_3+" TEXT, "+T4COL_4+" TEXT)";
+        query = "CREATE TABLE "+ TABLE4_NAME + "("+ T4COL_1 +" INTEGER PRIMARY KEY, "+ T4COL_2+" TEXT, "+T4COL_3+" TEXT, "+T4COL_4+" TEXT, "+T4COL_5+" TEXT)";
         sqLiteDatabase.execSQL(query);
 
         query = "CREATE TABLE "+ TABLE5_NAME + "("+ T5COL_1 +" INTEGER PRIMARY KEY, "+ T5COL_2+" TEXT, "+T5COL_3+" TEXT, "+T5COL_4+" INTEGER, "+T5COL_5 +" INTEGER)";
@@ -245,7 +248,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor cursor = database.rawQuery(query,UserName);
         return cursor;
     }
-    public boolean addRestaurantInfo(String UserName,String RestaurantName,String RestaurantLocation) {
+    public boolean addRestaurantInfo(String UserName,String RestaurantName,String RestaurantLocation,String RestaurantReminder) {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         System.out.println("Username: "+UserName);
@@ -254,6 +257,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(T4COL_2,UserName);
         values.put(T4COL_3,RestaurantName);
         values.put(T4COL_4,RestaurantLocation);
+        values.put(T4COL_5,RestaurantReminder);
         long l = sqLiteDatabase.insert(TABLE4_NAME,null,values);
         if(l > 0)
             return true;
@@ -275,6 +279,26 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return false;
     }
 
+
+
+    public boolean updateRestaurantTable(String id, String c)
+    {
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(T4COL_5,c);
+        int u = sqLiteDatabase.update(TABLE4_NAME,contentValues,"UserName=?",
+                new String[]{id});
+        if(u>0)
+            return true;
+        else
+        {
+            System.out.println("No update happened");
+            return false;
+
+        }
+
+
+    }
 
     public boolean updatePassword(String id,String c){
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
