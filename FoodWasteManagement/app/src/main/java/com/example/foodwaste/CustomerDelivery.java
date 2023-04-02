@@ -32,7 +32,17 @@ public class CustomerDelivery extends AppCompatActivity {
           btnConfirm.setOnClickListener(new View.OnClickListener() {
               @Override
               public void onClick(View v) {
-                  databaseHelper.addDeliveryInformation(userName,deliveryType,txtLocation.getText().toString());
+                  Intent intent = getIntent();
+                  String[] ItemName =intent.getStringArrayExtra("ItemName");
+                  String[] ItemQty =intent.getStringArrayExtra("ItemQty");
+                  String[] ItemPrice =intent.getStringArrayExtra("ItemPrice");
+                  String resName = intent.getStringExtra("resName");
+                for(int i=0;i<ItemName.length;i++)
+                {
+                    databaseHelper.addOrderInformation(userName,resName,ItemName[i],ItemPrice[i],ItemQty[i],deliveryType,txtLocation.getText().toString());
+                }
+
+
                   Toast.makeText(CustomerDelivery.this," delivery data added",Toast.LENGTH_LONG).show();
                   startActivity(new Intent(CustomerDelivery.this,CustomerProfile.class));
               }

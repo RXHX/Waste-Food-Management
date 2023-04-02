@@ -179,7 +179,11 @@ public class RestaurantMenu extends AppCompatActivity {
                   }
 
                     Intent intent = new Intent(RestaurantMenu.this,CustomerOrder.class);
+                 Intent intent1 = getIntent();
+                 String resName = intent1.getStringExtra("selectedRestaurantName");
+
                  intent.putExtra("MenuItem", Cart);
+                 intent.putExtra("resName", resName);
                  startActivity(intent);
                  Cart.clear();
 
