@@ -75,7 +75,7 @@ public class CustomerOrder extends AppCompatActivity {
         listView.setAdapter(adapter);
 
         billBeforeTax.setText(sum+"");
-        double tax = 0.5;
+        double tax = 0.05;
         tax =   sum + sum * tax;
         billAfterTax.setText(tax+"");
 
@@ -83,7 +83,14 @@ public class CustomerOrder extends AppCompatActivity {
         deliveryType.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                   startActivity(new Intent(CustomerOrder.this,CustomerDelivery.class));
+                Intent intent = new Intent(CustomerOrder.this,CustomerDelivery.class);
+               Intent intent1 = getIntent();
+               String resName = intent1.getStringExtra("resName");
+                intent.putExtra("ItemName",ItemName);
+                intent.putExtra("ItemQty",ItemQty);
+                intent.putExtra("ItemPrice",ItemPrice);
+                intent.putExtra("resName", resName);
+                   startActivity(intent);
             }
         });
     }

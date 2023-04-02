@@ -26,6 +26,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
       public int[] images;
       public int restaurantListLength;
 
+
     public CardAdapter(int  restaurantListLength) {
 
         this.restaurantListLength = restaurantListLength;
@@ -91,13 +92,19 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
             itemTitle = itemView.findViewById(R.id.item_title);
             itemDetail = itemView.findViewById(R.id.item_detail);
 
+
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     int position = getAdapterPosition();
                     CardAdapter.this.getItemId(position);
+
+
+                    String SelectedRestaruantName = restaurantName[position];
+
                     Intent intent = new Intent(itemView.getContext(), RestaurantMenu.class);
                     intent.putExtra("pos",position);
+                    intent.putExtra("selectedRestaurantName",SelectedRestaruantName);
 
                     itemView.getContext().startActivity(intent);
 

@@ -21,6 +21,7 @@ DatabaseHelper databaseHelper;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_profile);
         TextView userName = findViewById(R.id.loggedUser);
+        Button logout = findViewById(R.id.btnLogOutuser);
         databaseHelper = new DatabaseHelper(this);
         SharedPreferences sh = getSharedPreferences("MySharedPref", Context.MODE_PRIVATE);
         String[] userInfo = {sh.getString("UserName","")};
@@ -34,6 +35,7 @@ DatabaseHelper databaseHelper;
             }
         }
         Button search_For_Restaurant = findViewById(R.id.btnsearchRestaurant);
+        Button order_history = findViewById(R.id.btnOrderHistory);
         search_For_Restaurant.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -42,6 +44,7 @@ DatabaseHelper databaseHelper;
                 startActivity(intent);
             }
         });
+
 
 
         Button update_Profile = findViewById(R.id.btnupdate);
@@ -53,5 +56,22 @@ DatabaseHelper databaseHelper;
            // startActivity(intent);
             }
         });
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(CustomerProfile.this,Login.class));
+            }
+        });
+
+        order_history.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            startActivity(new Intent(CustomerProfile.this,CustomerOrderReview.class));
+            }
+        });
+
+
+
     }
 }
