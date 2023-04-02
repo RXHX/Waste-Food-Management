@@ -35,6 +35,7 @@ DatabaseHelper databaseHelper;
             }
         }
         Button search_For_Restaurant = findViewById(R.id.btnsearchRestaurant);
+        Button order_history = findViewById(R.id.btnOrderHistory);
         search_For_Restaurant.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -50,5 +51,14 @@ DatabaseHelper databaseHelper;
                 startActivity(new Intent(CustomerProfile.this,Login.class));
             }
         });
+
+        order_history.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            startActivity(new Intent(CustomerProfile.this,CustomerOrderReview.class));
+            }
+        });
+
+
     }
 }
