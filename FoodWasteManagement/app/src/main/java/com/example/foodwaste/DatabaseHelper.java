@@ -294,7 +294,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public Cursor getProfileInfo(String[] UserName){
         SQLiteDatabase database = this.getReadableDatabase();
-        String query = "SELECT * FROM " + TABLE2_NAME+" Where UserName = ?";
+        String query = "SELECT * FROM " + TABLE2_NAME+" Where Username = ?";
         Cursor cursor = database.rawQuery(query,UserName);
         return cursor;
     }
@@ -313,6 +313,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return false;
     };
 
+
+    public boolean updateProfile(String user,String hobbies,String food,String option,String org,String studentNumber){
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(T2COL_2,hobbies);
+        contentValues.put(T2COL_3,food);
+        contentValues.put(T2COL_4,option);
+        contentValues.put(T2COL_5,org);
+        contentValues.put(T2COL_6,studentNumber);
+        int u = sqLiteDatabase.update(TABLE2_NAME,contentValues,"username=?",
+                new String[]{user});
+        if(u>0)
+            return true;
+        else
+            return false;
+    }
 }
 
 

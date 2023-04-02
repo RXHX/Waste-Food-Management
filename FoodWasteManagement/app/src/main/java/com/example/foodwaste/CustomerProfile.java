@@ -31,11 +31,14 @@ DatabaseHelper databaseHelper;
             for(int i=0; c.moveToNext() != false; i++)
             {
                 System.out.println("Column 1"+c.getString(i));
-                 userName.setText(c.getString(2));
+                 userName.setText(c.getString(0));
+
             }
         }
+
         Button search_For_Restaurant = findViewById(R.id.btnsearchRestaurant);
         Button order_history = findViewById(R.id.btnOrderHistory);
+        Button update_Profile = findViewById(R.id.btnupdate);
         search_For_Restaurant.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -47,14 +50,16 @@ DatabaseHelper databaseHelper;
 
 
 
-        Button update_Profile = findViewById(R.id.btnupdate);
+
         update_Profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            //Intent intent = new Intent(CustomerProfile.this,ProfileCustomer.class);
-            //intent.putExtra("username",userInfo);
-           // startActivity(intent);
-            }
+
+
+                Intent intent = new Intent(CustomerProfile.this,ProfileCustomer.class);
+                intent.putExtra("username",userName.getText().toString());
+                startActivity(intent);
+            };
         });
 
         logout.setOnClickListener(new View.OnClickListener() {

@@ -66,6 +66,8 @@
     <string name="hint1">"Enter Username"</string>
     <string name="hint2">"Enter Hobbies"</string>
     <string name="hint3">""</string>
+    <string name="hint4">"Enter Student Organization"</string>
+    <string name="hint5">"Enter Student Number"</string>
 
     <string name="title_activity_customer_order_history">CustomerOrderHistory</string>
     <!-- Strings used for fragments for navigation -->
