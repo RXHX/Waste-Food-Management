@@ -42,5 +42,16 @@ DatabaseHelper databaseHelper;
                 startActivity(intent);
             }
         });
+
+
+        Button update_Profile = findViewById(R.id.btnupdate);
+        update_Profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            //Intent intent = new Intent(CustomerProfile.this,ProfileCustomer.class);
+            //intent.putExtra("username",userInfo);
+           // startActivity(intent);
+            }
+        });
     }
 }

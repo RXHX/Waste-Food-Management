@@ -24,7 +24,7 @@ public class CustomerRegistration extends AppCompatActivity {
         EditText phoneNum = findViewById(R.id.editTextPhone);
 
         btnSubmit.setOnClickListener(new View.OnClickListener() {
-            boolean isInserted;
+            boolean isInserted,isInsertedProfile;
             @Override
             public void onClick(View view) {
                 isInserted = databaseHelper.addDataCustomerReg(uName.getText().toString(),
@@ -33,6 +33,8 @@ public class CustomerRegistration extends AppCompatActivity {
                         date.getText().toString(),
                         phoneNum.getText().toString()
                         );
+
+                isInsertedProfile = databaseHelper.addDataProfile(uName.getText().toString());
 
                 if(isInserted){
                     Toast.makeText(CustomerRegistration.this,"data added",Toast.LENGTH_LONG).show();

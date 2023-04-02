@@ -51,6 +51,20 @@
     <string name="delstatus">Confirm Delivery</string>
     <string name="pickup">Your can pick up your order after 30 Minutes.</string>
     <string name="loc">Location</string>
-
+    <string name="txtProfileHobbies">Hobbies</string>
+    <string name="txtFavFood">Favourite Food</string>
+    <string name="proflie_username">Username</string>
+    <string name="btnNextProfile">Next</string>
+    <string name="imgUser">User Image</string>
+    <string name="UpdateProfile">Update</string>
+    <string name="txtRdBtnProfileAreYouStudent">Are you a Student?</string>
+    <string name="rdBtnYesProfile">Yes</string>
+    <string name="rdBtnProfileNo">No</string>
+    <string name="txtOranisation">Organisation</string>
+    <string name="txtStudentID">Student ID</string>
+    <string name="btnBackProfile">Back</string>
+    <string name="hint1">"Enter Username"</string>
+    <string name="hint2">"Enter Hobbies"</string>
+    <string name="hint3">""</string>
 
 </resources>

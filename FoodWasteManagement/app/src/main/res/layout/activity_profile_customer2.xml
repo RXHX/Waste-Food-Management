@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FF9800"
+    tools:context=".ProfileCustomer2">
+
+    <TextView
+        android:id="@+id/txtStudentOption"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="33dp"
+        android:layout_marginBottom="94dp"
+        android:gravity="bottom"
+        android:text="@string/txtRdBtnProfileAreYouStudent"
+        android:textColor="#B71C1C"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/txtOrganization"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioButton
+        android:id="@+id/rdbtnYes"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="34dp"
+        android:layout_marginTop="101dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginBottom="77dp"
+        android:text="@string/rdBtnYesProfile"
+        android:textColor="#424242"
+        app:layout_constraintBottom_toTopOf="@+id/edTxtOrganization"
+        app:layout_constraintEnd_toStartOf="@+id/rdBtnNo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck" />
+
+    <RadioButton
+        android:id="@+id/rdBtnNo"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="151dp"
+        android:text="@string/rdBtnProfileNo"
+        android:textColor="#424242"
+        app:layout_constraintBaseline_toBaselineOf="@+id/rdbtnYes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/rdbtnYes"
+        tools:ignore="TextContrastCheck,TextContrastCheck" />
+
+    <TextView
+        android:id="@+id/txtOrganization"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:gravity="bottom"
+        android:text="@string/txtOranisation"
+        android:textColor="#B71C1C"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/edTxtOrganization"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtStudentOption" />
+
+    <EditText
+        android:id="@+id/edTxtOrganization"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="235dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textColor="#6D4C41"
+        app:layout_constraintBottom_toTopOf="@+id/btnBackProfile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rdbtnYes"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <TextView
+        android:id="@+id/txtStudentID"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="2dp"
+        android:gravity="bottom"
+        android:text="@string/txtStudentID"
+        android:textColor="#B71C1C"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/editTextNumber"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edTxtOrganization" />
+
+    <EditText
+        android:id="@+id/editTextNumber"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="117dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:inputType="number"
+        android:textColor="#6D4C41"
+        app:layout_constraintBottom_toTopOf="@+id/btnUpdateProfile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtStudentID"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <Button
+        android:id="@+id/btnBackProfile"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginEnd="124dp"
+        android:layout_marginBottom="34dp"
+        android:text="@string/btnBackProfile"
+        android:textColor="#6D4C41"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnUpdateProfile"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edTxtOrganization"
+        tools:ignore="DuplicateSpeakableTextCheck" />
+
+    <Button
+        android:id="@+id/btnUpdateProfile"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="22dp"
+        android:layout_marginBottom="30dp"
+        android:text="@string/UpdateProfile"
+        android:textColor="#6D4C41"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnBackProfile"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNumber" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

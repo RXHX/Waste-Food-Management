@@ -10,7 +10,7 @@ import androidx.annotation.Nullable;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     final static String DATABASE_NAME = "WASTE_MANAGEMENT.db";
-    final static int DATABASE_VERSION = 27;
+    final static int DATABASE_VERSION = 28;
 
     // Table for registration table
     final static String TABLE1_NAME ="Registration_table";
@@ -280,7 +280,26 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
                 }
 
+    public Cursor getProfileInfo(String[] UserName){
+        SQLiteDatabase database = this.getReadableDatabase();
+        String query = "SELECT * FROM " + TABLE2_NAME+" Where UserName = ?";
+        Cursor cursor = database.rawQuery(query,UserName);
+        return cursor;
+    }
 
+
+    public boolean addDataProfile(String username/*,String favFood,String studentOption,String organization,String studentID,String hobbies*/){
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(T2COL_1,username);
+        //values.put(T2COL_4,fullName);
+
+        long l = sqLiteDatabase.insert(TABLE2_NAME,null,values);
+        if(l > 0)
+            return true;
+        else
+            return false;
+    };
 
 }
 
