@@ -60,7 +60,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     final static String T5COL_4 = "Price";
     final static String T5COL_5 = "Qty";
 
-    // Table for Delivery
+    // Table for Order
     final static String TABLE6_NAME="Order_table";
     final static String T6COL_1 = "Id";
     final static String T6COL_2 = "UserName";
@@ -241,6 +241,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
+    public Cursor getOrderInfo()
+    {
+        SQLiteDatabase database = this.getReadableDatabase();
+        String query = "SELECT * FROM " + TABLE6_NAME;
+        Cursor cursor = database.rawQuery(query,null);
+        return cursor;
+    }
     public Cursor getLoggedUserInfo(String[] UserName)
     {
         SQLiteDatabase database = this.getReadableDatabase();

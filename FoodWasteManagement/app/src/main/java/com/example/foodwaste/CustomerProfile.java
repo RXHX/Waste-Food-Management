@@ -72,7 +72,7 @@ DatabaseHelper databaseHelper;
         order_history.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            startActivity(new Intent(CustomerProfile.this,CustomerOrderReview.class));
+            startActivity(new Intent(CustomerProfile.this,SoldOrder.class));
             }
         });
 

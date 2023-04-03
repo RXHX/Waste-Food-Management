@@ -22,37 +22,20 @@
         android:id="@+id/txtNameProfile"
         android:layout_width="225dp"
         android:layout_height="114dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="bottom"
         android:textColor="#4E342E"
         android:textSize="30sp"
-        android:gravity="bottom"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/edProfileUsername"
-        android:layout_width="329dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="31dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="51dp"
-        android:autofillHints=""
-        android:ems="10"
-        android:hint="@string/hint1"
-        android:inputType="textPersonName"
-        android:textColor="#6D4C41"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtUsername"
-        tools:ignore="SpeakableTextPresentCheck,TextContrastCheck,TextContrastCheck,TextContrastCheck,TextContrastCheck" />
 
     <EditText
         android:id="@+id/edTxtHobbies"
         android:layout_width="345dp"
         android:layout_height="48dp"
         android:layout_marginStart="31dp"
-        android:layout_marginTop="9dp"
+        android:layout_marginTop="28dp"
         android:layout_marginEnd="35dp"
         android:autofillHints=""
         android:ems="10"
@@ -60,6 +43,7 @@
         android:inputType="textPersonName"
         android:textColor="#6D4C41"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtHobbies"
         tools:ignore="SpeakableTextPresentCheck,TextContrastCheck,TextContrastCheck" />
@@ -69,7 +53,7 @@
         android:layout_width="345dp"
         android:layout_height="48dp"
         android:layout_marginStart="31dp"
-        android:layout_marginTop="9dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="35dp"
         android:autofillHints=""
         android:ems="10"
@@ -78,6 +62,7 @@
         android:textColor="#6D4C41"
         android:textColorHint="#4E342E"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtFavFood"
         tools:ignore="SpeakableTextPresentCheck,TextContrastCheck" />
@@ -99,32 +84,18 @@
 
 
     <TextView
-        android:id="@+id/txtUsername"
-        android:layout_width="345dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="31dp"
-        android:layout_marginTop="35dp"
-        android:layout_marginEnd="35dp"
-        android:gravity="bottom"
-        android:text="@string/proflie_username"
-        android:textColor="#B71C1C"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgUser" />
-
-    <TextView
         android:id="@+id/txtFavFood"
         android:layout_width="345dp"
         android:layout_height="40dp"
         android:layout_marginStart="31dp"
-        android:layout_marginTop="39dp"
+        android:layout_marginTop="60dp"
         android:layout_marginEnd="35dp"
-        android:text="@string/txtFavFood"
-        android:textSize="20sp"
-        android:textColor="#B71C1C"
         android:gravity="bottom"
+        android:text="@string/txtFavFood"
+        android:textColor="#B71C1C"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edTxtHobbies" />
 
@@ -133,13 +104,14 @@
         android:layout_width="345dp"
         android:layout_height="40dp"
         android:layout_marginStart="31dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="56dp"
         android:layout_marginEnd="35dp"
-        android:text="@string/txtProfileHobbies"
-        android:textSize="20sp"
-        android:textColor="#B71C1C"
         android:gravity="bottom"
+        android:text="@string/txtProfileHobbies"
+        android:textColor="#B71C1C"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edProfileUsername" />
+        app:layout_constraintTop_toBottomOf="@+id/txtNameProfile" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -23,8 +23,16 @@ public class ProfileCustomer2 extends AppCompatActivity {
         EditText studentOrg = findViewById(R.id.edTxtOrganization);
         EditText studentNumber = findViewById(R.id.edTxtStudentNumber);
         Button update_profilebtn = findViewById(R.id.btnUpdateProfile);
+        Button back_profilebtn = findViewById(R.id.btnBackProfile);
         dbh = new DatabaseHelper(this);
         Intent intent = getIntent();
+
+       back_profilebtn.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+           startActivity(new Intent(ProfileCustomer2.this,ProfileCustomer.class));
+           }
+       });
 
 
         update_profilebtn.setOnClickListener(new View.OnClickListener() {

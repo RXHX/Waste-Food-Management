@@ -22,7 +22,7 @@
     <string name="btnOrderHistory">View Order History</string>
     <string name="btnupdate">View/Edit user profile</string>
     <string name="btnLogOutuser">Log out</string>
-    <string name="btnAddremove">Add/Remove food items</string>
+    <string name="btnAddremove">Add food items</string>
     <string name="btnReminder">Send a reminder</string>
     <string name="btnReports">Generate reports</string>
     <string name="txtPhoneNumber">Enter Phone Number</string>
@@ -80,6 +80,7 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="txtReminder">Please Enter Reminder Message</string>
     <string name="custReminder"></string>
+    <string name="txtSold">ORDERED</string>
 
 
 </resources>
