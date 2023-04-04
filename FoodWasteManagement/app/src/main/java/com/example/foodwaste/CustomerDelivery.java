@@ -13,6 +13,8 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONArray;
+
 public class CustomerDelivery extends AppCompatActivity {
 
     String deliveryType = "";
@@ -37,7 +39,16 @@ public class CustomerDelivery extends AppCompatActivity {
                   String[] ItemQty =intent.getStringArrayExtra("ItemQty");
                   String[] ItemPrice =intent.getStringArrayExtra("ItemPrice");
                   String resName = intent.getStringExtra("resName");
+                  SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref",MODE_PRIVATE);
+                  try {
+                      JSONArray delMenuIds = new JSONArray(sharedPreferences.getString("delItem", "[]"));
+                      for (int i = 0; i < delMenuIds.length(); i++) {
+                          System.out.println("Id to be deleted"+delMenuIds.getInt(i));
 
+                      }
+                  } catch (Exception e) {
+                      e.printStackTrace();
+                  }
                     databaseHelper.addOrderInformation(userName,resName,deliveryType,txtLocation.getText().toString());
 
 

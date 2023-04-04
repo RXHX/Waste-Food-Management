@@ -172,6 +172,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
+
+
     public boolean addDataManagerReg(String username,String password,String fullName,String restaurantName,String location,String phoneNumber){
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues values = new ContentValues();

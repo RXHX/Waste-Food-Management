@@ -17,6 +17,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.gson.Gson;
 
+import org.json.JSONArray;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -45,11 +47,13 @@ public class RestaurantMenu extends AppCompatActivity {
         int[] qty = new int[c.getCount()];
         int[] price = new int[c.getCount()];
 
+
         ArrayList<HashMap<String,String>> aList1 = new ArrayList<HashMap<String,String>>();
         if(c.getCount() >0)
         {
             for(int i=0; c.moveToNext() != false; i++)
             {
+
                 System.out.println("Column 1"+c.getString(2));
                 System.out.println("Column 2"+c.getInt(3));
                 description[i] = c.getString(2);
@@ -126,10 +130,13 @@ public class RestaurantMenu extends AppCompatActivity {
                 checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                     @Override
                     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+
                         if(isChecked)
                         {
                             System.out.println("Item Checked");
                             menuItem.add(position);
+
                         }
                         else{
                             System.out.println("Item Unchecked");
@@ -159,8 +166,11 @@ public class RestaurantMenu extends AppCompatActivity {
                System.out.println("Got Here SelectedItem"+menuItem);
 
 
+
                   for(int j =0; j <menuItem.size();j++)
                   {
+
+                       System.out.println("Menu Item at Pos: "+menuItem.get(j));
                       HashMap<String,String> items = new HashMap<>();
                       String itemName = aList1.get(menuItem.get(j)).get("txt");
                       String price = aList1.get(menuItem.get(j)).get("price");
@@ -177,6 +187,8 @@ public class RestaurantMenu extends AppCompatActivity {
                       menu1.setQty(Qty);
                       Cart.add(menu1);
                   }
+
+
 
                     Intent intent = new Intent(RestaurantMenu.this,CustomerOrder.class);
                  Intent intent1 = getIntent();
