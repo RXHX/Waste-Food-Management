@@ -73,7 +73,7 @@ public class CustomerRegistration extends AppCompatActivity {
                         Toast.makeText(CustomerRegistration.this,"Enter Unique username ",Toast.LENGTH_LONG).show();
                     }
 
-
+             System.out.println("Hope");
 
                 }
 
