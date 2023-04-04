@@ -12,6 +12,34 @@ import android.widget.Toast;
 public class ManagerRegistration extends AppCompatActivity {
 DatabaseHelper databaseHelper;
 EditText uName,password,fullName,restName,location,phoneNumber;
+    boolean isAllFieldsChecked = false ;
+
+
+    private boolean CheckAllFields(){
+        if(uName.length() == 0){
+            uName.setError("This field is required");
+            return false;
+        }
+        if (password.length() == 0){
+            password.setError("password is required");
+            return false;
+        }
+        else if(password.length() < 8){
+            password.setError("password must be minimum 8 characters");
+            return false ;
+        }
+        if(restName.length() == 0){
+            restName.setError("This is required");
+            return false;
+        }
+        if(location.length() == 0){
+            location.setError("This is required");
+            return false;
+        }
+
+        return true ;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,29 +57,32 @@ EditText uName,password,fullName,restName,location,phoneNumber;
             boolean isInserted;
             @Override
             public void onClick(View v) {
-                isInserted = databaseHelper.addDataManagerReg(uName.getText().toString(),
-                        password.getText().toString(),
-                        fullName.getText().toString(),
-                        restName.getText().toString(),
-                        location.getText().toString(),
-                        phoneNumber.getText().toString());
-                if(isInserted){
-                    Toast.makeText(ManagerRegistration.this,"data added",Toast.LENGTH_LONG).show();
-                    databaseHelper.addLogin(uName.getText().toString(),
-                            password.getText().toString(),"Manager");
+                isAllFieldsChecked = CheckAllFields();
+                if (isAllFieldsChecked) {
+                    isInserted = databaseHelper.addDataManagerReg(uName.getText().toString(),
+                            password.getText().toString(),
+                            fullName.getText().toString(),
+                            restName.getText().toString(),
+                            location.getText().toString(),
+                            phoneNumber.getText().toString());
+                    if(isInserted){
+                        Toast.makeText(ManagerRegistration.this,"data added",Toast.LENGTH_LONG).show();
+                        databaseHelper.addLogin(uName.getText().toString(),
+                                password.getText().toString(),"Manager");
 
-                    databaseHelper.addRestaurantInfo(uName.getText().toString(),restName.getText().toString(),
-                            location.getText().toString()," ");
-                    uName.setText("");
-                    password.setText("");
-                    fullName.setText("");
-                    restName.setText("");
-                    location.setText("");
-                    phoneNumber.setText("");
-                    startActivity(new Intent(ManagerRegistration.this,Login.class));
-                }
-                else{
-                    Toast.makeText(ManagerRegistration.this,"data not added",Toast.LENGTH_LONG).show();
+                        databaseHelper.addRestaurantInfo(uName.getText().toString(),restName.getText().toString(),
+                                location.getText().toString()," ");
+                        uName.setText("");
+                        password.setText("");
+                        fullName.setText("");
+                        restName.setText("");
+                        location.setText("");
+                        phoneNumber.setText("");
+                        startActivity(new Intent(ManagerRegistration.this,Login.class));
+                    }
+                    else{
+                        Toast.makeText(ManagerRegistration.this,"Enter Unique UserName",Toast.LENGTH_LONG).show();
+                    }
                 }
             }
         });
