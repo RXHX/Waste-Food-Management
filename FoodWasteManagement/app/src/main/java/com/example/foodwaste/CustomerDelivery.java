@@ -37,10 +37,8 @@ public class CustomerDelivery extends AppCompatActivity {
                   String[] ItemQty =intent.getStringArrayExtra("ItemQty");
                   String[] ItemPrice =intent.getStringArrayExtra("ItemPrice");
                   String resName = intent.getStringExtra("resName");
-                for(int i=0;i<ItemName.length;i++)
-                {
-                    databaseHelper.addOrderInformation(userName,resName,ItemName[i],ItemPrice[i],ItemQty[i],deliveryType,txtLocation.getText().toString());
-                }
+
+                    databaseHelper.addOrderInformation(userName,resName,deliveryType,txtLocation.getText().toString());
 
 
                   Toast.makeText(CustomerDelivery.this," delivery data added",Toast.LENGTH_LONG).show();

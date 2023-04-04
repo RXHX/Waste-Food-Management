@@ -11,7 +11,7 @@ import androidx.annotation.Nullable;
 public class DatabaseHelper extends SQLiteOpenHelper {
     final static String DATABASE_NAME = "WASTE_MANAGEMENT.db";
 
-    final static int DATABASE_VERSION = 32;
+    final static int DATABASE_VERSION = 33;
 
 
     // Table for registration table
@@ -65,17 +65,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     final static String T6COL_1 = "Id";
     final static String T6COL_2 = "UserName";
     final static String T6COL_3 = "RestaurantName";
-    final static String T6COL_4 = "Item";
-    final static String T6COL_5 = "Price";
-    final static String T6COL_6 = "Qty";
-    final static String T6COL_7 = "DeliveryType";
-    final static String T6COL_8 = "DeliveryAddress";
-
-
-
-
-
-
+    final static String T6COL_4 = "DeliveryType";
+    final static String T6COL_5 = "DeliveryAddress";
 
 
     public DatabaseHelper(@Nullable Context context) {
@@ -106,8 +97,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         query = "CREATE TABLE "+ TABLE5_NAME + "("+ T5COL_1 +" INTEGER PRIMARY KEY, "+ T5COL_2+" TEXT, "+T5COL_3+" TEXT, "+T5COL_4+" INTEGER, "+T5COL_5 +" INTEGER)";
         sqLiteDatabase.execSQL(query);
 
-        query = "CREATE TABLE "+ TABLE6_NAME + "("+ T6COL_1 +" INTEGER PRIMARY KEY, "+ T6COL_2+" TEXT, "+T6COL_3+" TEXT, "+T6COL_4+" TEXT, "
-                +T6COL_5+" TEXT, "+T6COL_6+" TEXT, "+T6COL_7+" TEXT, "+T6COL_8+" TEXT)";
+        query = "CREATE TABLE "+ TABLE6_NAME + "("+ T6COL_1 +" INTEGER PRIMARY KEY, "+ T6COL_2+" TEXT, "+T6COL_3+" TEXT, "+T6COL_4+" TEXT, "+T6COL_5+" TEXT)";
         sqLiteDatabase.execSQL(query);
 
 
@@ -198,17 +188,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public boolean addOrderInformation(String username,String restaurantName,String Item,String Price, String Qty, String deliveryType,String deliveryAddress)
+    public boolean addOrderInformation(String username,String restaurantName, String deliveryType,String deliveryAddress)
     {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(T6COL_2,username);
         values.put(T6COL_3,restaurantName);
-        values.put(T6COL_4,Item);
-        values.put(T6COL_5,Price);
-        values.put(T6COL_6,Qty);
-        values.put(T6COL_7,deliveryType);
-        values.put(T6COL_8,deliveryAddress);
+        values.put(T6COL_4,deliveryType);
+        values.put(T6COL_5,deliveryAddress);
 
         long l = sqLiteDatabase.insert(TABLE6_NAME,null,values);
         if(l > 0)
@@ -241,11 +228,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
-    public Cursor getOrderInfo()
+    public Cursor getOrderInfo(String[] UserName)
     {
         SQLiteDatabase database = this.getReadableDatabase();
-        String query = "SELECT * FROM " + TABLE6_NAME;
-        Cursor cursor = database.rawQuery(query,null);
+        String query = "SELECT * FROM " + TABLE6_NAME + " WHERE UserName = ?";
+        Cursor cursor = database.rawQuery(query,UserName);
         return cursor;
     }
     public Cursor getLoggedUserInfo(String[] UserName)

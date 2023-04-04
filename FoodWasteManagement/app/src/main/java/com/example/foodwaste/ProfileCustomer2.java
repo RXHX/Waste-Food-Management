@@ -2,6 +2,7 @@ package com.example.foodwaste;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ComponentName;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -26,7 +27,6 @@ public class ProfileCustomer2 extends AppCompatActivity {
         Button back_profilebtn = findViewById(R.id.btnBackProfile);
         dbh = new DatabaseHelper(this);
         Intent intent = getIntent();
-
        back_profilebtn.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
@@ -64,6 +64,8 @@ public class ProfileCustomer2 extends AppCompatActivity {
                     Toast.makeText(ProfileCustomer2.this,"record is not updated",
                             Toast.LENGTH_LONG).show();
                 }
+
+                startActivity(new Intent(ProfileCustomer2.this,CustomerProfile.class));
             }
         });
 

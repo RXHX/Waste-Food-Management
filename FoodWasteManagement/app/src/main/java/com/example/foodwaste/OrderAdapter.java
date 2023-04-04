@@ -1,6 +1,8 @@
 package com.example.foodwaste;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,9 +18,11 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder>{
     public String[] restaurantName;
     public String[] deliveryType;
     public int orderListLength;
-    public OrderAdapter(int  orderListLength) {
+    public String[] currentUserName;
+    public OrderAdapter(int  orderListLength,String[] currentUserName) {
 
         this.orderListLength = orderListLength;
+        this.currentUserName = currentUserName;
     }
 
     @NonNull
@@ -26,7 +30,9 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder>{
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_viewsolditems,parent,false);
         DatabaseHelper  databaseHelper = new DatabaseHelper(parent.getContext());
-        Cursor c = databaseHelper.getOrderInfo();
+
+
+        Cursor c = databaseHelper.getOrderInfo(currentUserName);
         restaurantName = new String[c.getCount()];
         deliveryType = new String[c.getCount()];
         if(c.getCount()>0){
@@ -34,7 +40,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder>{
             for(int i=0; c.moveToNext() != false; i++)
             {
                 restaurantName[i] = c.getString(2);
-                deliveryType[i] = c.getString(6);
+                deliveryType[i] = c.getString(3);
             }
 
         }
