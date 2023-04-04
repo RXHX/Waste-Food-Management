@@ -13,14 +13,36 @@ import android.widget.Toast;
 
 public class Login extends AppCompatActivity {
     DatabaseHelper databaseHelper;
+    EditText username, password;
+    boolean isAllFieldsChecked = false ;
+
+    private boolean CheckAllFields(){
+        if(username.length() == 0){
+            username.setError("This field is required");
+            //Toast.makeText(username.getContext(),"This field is required" ,Toast.LENGTH_LONG).show();
+            return false;
+        }
+        if (password.length() == 0){
+            password.setError("password is required");
+            // Toast.makeText(password.getContext(),"This field is required" ,Toast.LENGTH_LONG).show();
+            return false;
+        }
+        else if(password.length() < 8){
+            password.setError("password must be minimum 8 characters");
+            return false ;
+        }
+
+        return true ;
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         databaseHelper=new DatabaseHelper(this);
-        EditText username=findViewById(R.id.edTxtUserName);
-        EditText password=findViewById(R.id.edTxtPassword);
+        username=findViewById(R.id.edTxtUserName);
+        password=findViewById(R.id.edTxtPassword);
         Button btnLogin=findViewById(R.id.btnLogin);
         Button btnForgot=findViewById(R.id.btnForgot);
         Button btnSignCust=findViewById(R.id.btnSignCust);
@@ -57,6 +79,7 @@ public class Login extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                isAllFieldsChecked = CheckAllFields() ;
                 Cursor c = databaseHelper.checkLogin();
                 StringBuilder str = new StringBuilder();
                 if(c.getCount()>0){
@@ -100,5 +123,11 @@ public class Login extends AppCompatActivity {
         });
 
 
+
+
+
     }
+
+
+
 }

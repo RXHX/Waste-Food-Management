@@ -30,23 +30,28 @@ public class ForgotPassword extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if(password.getText().toString().equals(repassword.getText().toString()))
-                {
-                    Id = username.getText().toString();
-                    isUpdated = databaseHelper.updatePassword(Id,password.getText().toString());
-                    if(isUpdated){
-                        Toast.makeText(ForgotPassword.this,"record is updated",
-                                Toast.LENGTH_LONG).show();
-                    }
-                    else
+
+                    if(password.getText().toString().equals(repassword.getText().toString()))
                     {
-                        Toast.makeText(ForgotPassword.this,"record is not updated",
-                                Toast.LENGTH_LONG).show();
+                        Id = username.getText().toString();
+                        isUpdated = databaseHelper.updatePassword(Id,password.getText().toString());
+                        if(isUpdated){
+                            Toast.makeText(ForgotPassword.this,"record is updated",
+                                    Toast.LENGTH_LONG).show();
+                        }
+                        else
+                        {
+                            Toast.makeText(ForgotPassword.this,"Please Enter Correct Username",
+                                    Toast.LENGTH_LONG).show();
+                        }
                     }
-                }
-                else{
-                    Toast.makeText(ForgotPassword.this,"Please type correct Password",Toast.LENGTH_LONG).show();
-                }
+                    else{
+
+
+                        Toast.makeText(ForgotPassword.this,"Please type correct Password",Toast.LENGTH_LONG).show();
+                    }
+
+
 
 
 
