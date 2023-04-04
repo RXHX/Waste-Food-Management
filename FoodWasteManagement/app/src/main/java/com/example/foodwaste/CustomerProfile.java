@@ -39,6 +39,14 @@ DatabaseHelper databaseHelper;
         Button search_For_Restaurant = findViewById(R.id.btnsearchRestaurant);
         Button order_history = findViewById(R.id.btnOrderHistory);
         Button update_Profile = findViewById(R.id.btnupdate);
+        Button view_Profile = findViewById(R.id.custProfile);
+
+        view_Profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+              startActivity(new Intent(CustomerProfile.this,ViewProfile.class));
+            }
+        });
         search_For_Restaurant.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

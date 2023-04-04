@@ -28,11 +28,11 @@
 
     <Button
         android:id="@+id/btnupdate"
-        android:layout_width="320dp"
-        android:layout_height="72dp"
-        android:layout_marginStart="55dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="36dp"
+        android:layout_width="315dp"
+        android:layout_height="71dp"
+        android:layout_marginStart="46dp"
+        android:layout_marginTop="54dp"
+        android:layout_marginEnd="50dp"
         android:backgroundTint="#FFC800"
         android:shadowColor="#FF9800"
         android:text="@string/btnupdate"
@@ -40,7 +40,6 @@
         android:textSize="13sp"
         app:cornerRadius="10sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnsearchRestaurant"
         app:strokeColor="#FF9800"
@@ -48,10 +47,11 @@
 
     <Button
         android:id="@+id/btnOrderHistory"
-        android:layout_width="294dp"
+        android:layout_width="318dp"
         android:layout_height="66dp"
-        android:layout_marginTop="44dp"
-        android:layout_marginEnd="56dp"
+        android:layout_marginStart="46dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="47dp"
         android:backgroundTint="#FFC800"
         android:shadowColor="#FF9800"
         android:text="@string/btnOrderHistory"
@@ -59,17 +59,18 @@
         android:textSize="13sp"
         app:cornerRadius="10sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnupdate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/custProfile"
         app:strokeColor="#FF9800"
         app:strokeWidth="0sp" />
 
     <Button
         android:id="@+id/btnsearchRestaurant"
-        android:layout_width="307dp"
-        android:layout_height="75dp"
-        android:layout_marginStart="53dp"
-        android:layout_marginTop="76dp"
-        android:layout_marginEnd="51dp"
+        android:layout_width="318dp"
+        android:layout_height="66dp"
+        android:layout_marginStart="49dp"
+        android:layout_marginTop="66dp"
+        android:layout_marginEnd="44dp"
         android:backgroundTint="#FFC800"
         android:shadowColor="#FF9800"
         android:text="@string/btnsearchRestaurant"
@@ -77,7 +78,6 @@
         android:textSize="13sp"
         app:cornerRadius="10sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/loggedUser"
         app:strokeColor="#FF9800"
@@ -96,5 +96,19 @@
         app:layout_constraintHorizontal_bias="0.428"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/custProfile"
+        android:layout_width="318dp"
+        android:layout_height="63dp"
+        android:layout_marginStart="46dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="47dp"
+        android:text="@string/userProfile"
+        android:textColor="#6D4C41"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnupdate" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

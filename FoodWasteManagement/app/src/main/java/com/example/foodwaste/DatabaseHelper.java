@@ -162,6 +162,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
+
+
     public Cursor getClickedResaturantMenuInfo(String[] UserName)
     {
         SQLiteDatabase database = this.getReadableDatabase();

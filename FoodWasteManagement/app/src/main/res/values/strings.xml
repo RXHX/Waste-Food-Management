@@ -20,7 +20,7 @@
     <string name="btnOrderfood">Order Food</string>
     <string name="btnOrderDetails">View an order details and status</string>
     <string name="btnOrderHistory">View Order History</string>
-    <string name="btnupdate">View/Edit user profile</string>
+    <string name="btnupdate">Edit user profile</string>
     <string name="btnLogOutuser">Log out</string>
     <string name="btnAddremove">Add food items</string>
     <string name="btnReminder">Send a reminder</string>
@@ -81,6 +81,12 @@
     <string name="txtReminder">Please Enter Reminder Message</string>
     <string name="custReminder"></string>
     <string name="txtSold">ORDERED</string>
+    <string name="userProfile">View User Profile</string>
+    <string name="txtHobbies">Hobbies</string>
+    <string name="favFood">Favourite Food</string>
+    <string name="txtstdopt">Student Option</string>
+    <string name="txtstdId">Student ID</string>
+    <string name="txtstdorg">Student Organization</string>
 
 
 </resources>
