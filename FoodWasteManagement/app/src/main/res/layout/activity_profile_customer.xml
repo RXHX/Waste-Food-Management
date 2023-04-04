@@ -11,10 +11,10 @@
         android:id="@+id/imgUser"
         android:layout_width="138dp"
         android:layout_height="114dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
         android:contentDescription="@string/imgUser"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/txtNameProfile"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/user" />
 
@@ -35,15 +35,12 @@
         android:layout_width="345dp"
         android:layout_height="48dp"
         android:layout_marginStart="31dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="35dp"
+        android:layout_marginTop="27dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/hint2"
         android:inputType="textPersonName"
         android:textColor="#6D4C41"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtHobbies"
         tools:ignore="SpeakableTextPresentCheck,TextContrastCheck,TextContrastCheck" />
@@ -52,8 +49,7 @@
         android:id="@+id/edTxtFavFood"
         android:layout_width="345dp"
         android:layout_height="48dp"
-        android:layout_marginStart="31dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="37dp"
         android:layout_marginEnd="35dp"
         android:autofillHints=""
         android:ems="10"
@@ -62,41 +58,32 @@
         android:textColor="#6D4C41"
         android:textColorHint="#4E342E"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtFavFood"
         tools:ignore="SpeakableTextPresentCheck,TextContrastCheck" />
+
 
     <Button
         android:id="@+id/btnNextProfileCustomer"
         android:layout_width="115dp"
         android:layout_height="60dp"
-        android:layout_marginStart="263dp"
-        android:layout_marginTop="17dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="35dp"
-        android:layout_marginBottom="1dp"
         android:text="@string/btnNextProfile"
         android:textColor="#6D4C41"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edTxtFavFood" />
-
 
     <TextView
         android:id="@+id/txtFavFood"
         android:layout_width="345dp"
         android:layout_height="40dp"
-        android:layout_marginStart="31dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="35dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="33dp"
         android:gravity="bottom"
         android:text="@string/txtFavFood"
         android:textColor="#B71C1C"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edTxtHobbies" />
 
     <TextView
@@ -105,13 +92,10 @@
         android:layout_height="40dp"
         android:layout_marginStart="31dp"
         android:layout_marginTop="56dp"
-        android:layout_marginEnd="35dp"
         android:gravity="bottom"
         android:text="@string/txtProfileHobbies"
         android:textColor="#B71C1C"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtNameProfile" />
+        app:layout_constraintTop_toBottomOf="@+id/imgUser" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,7 +2,9 @@ package com.example.foodwaste;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
@@ -22,22 +24,13 @@ public class ProfileCustomer extends AppCompatActivity {
         EditText favoriteFood = findViewById(R.id.edTxtFavFood);
         TextView profileName = findViewById(R.id.txtNameProfile);
         Button goNext = findViewById(R.id.btnNextProfileCustomer);
-        databaseHelper = new DatabaseHelper(this);
-       Intent intent = getIntent();
-       String[] userStore = {intent.getStringExtra("username")};
-        Cursor c = databaseHelper.getProfileInfo(userStore);
-
-        if(c.getCount() >0)
-        {
-            for(int i=0; c.moveToNext() != false; i++)
-            {
-                System.out.println("Column 1"+c.getString(i));
-                profileName.setText(c.getString(0));
-
-            }
-        }
-
+        SharedPreferences sh = getSharedPreferences("MySharedPref", Context.MODE_PRIVATE);
+        String currentUser = sh.getString("UserName","");
+         profileName.setText(currentUser);
         goNext.setOnClickListener(new View.OnClickListener() {
+
+
+
             @Override
             public void onClick(View v) {
                 String userHobbies = hobbies.getText().toString();
