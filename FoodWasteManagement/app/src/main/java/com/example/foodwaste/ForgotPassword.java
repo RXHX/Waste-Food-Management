@@ -3,6 +3,7 @@ package com.example.foodwaste;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
@@ -31,25 +32,71 @@ public class ForgotPassword extends AppCompatActivity {
             public void onClick(View v) {
 
 
+
+
+
+                if(username.getText().toString().equals("") && password.getText().toString().equals("") && repassword.getText().toString().equals(""))
+                {
+                    Toast.makeText(ForgotPassword.this,"All the Field are Empty",
+                            Toast.LENGTH_LONG).show();
+                }
+                else if(username.getText().toString().equals(""))
+                {
+                    Toast.makeText(ForgotPassword.this,"UserName Field is Empty",
+                            Toast.LENGTH_LONG).show();
+                }
+                else if(password.getText().toString().equals(""))
+                {
+                    Toast.makeText(ForgotPassword.this,"Password is Empty",
+                            Toast.LENGTH_LONG).show();
+                }
+                else if(repassword.getText().toString().equals(""))
+                {
+                    Toast.makeText(ForgotPassword.this,"RePassword is Empty",
+                            Toast.LENGTH_LONG).show();
+                }
+                else{
                     if(password.getText().toString().equals(repassword.getText().toString()))
                     {
                         Id = username.getText().toString();
-                        isUpdated = databaseHelper.updatePassword(Id,password.getText().toString());
-                        if(isUpdated){
-                            Toast.makeText(ForgotPassword.this,"record is updated",
-                                    Toast.LENGTH_LONG).show();
+
+
+                        if(password.getText().toString().length() < 8){
+                            password.setError("password must be minimum 8 characters");
+                            password.setText("");
+                            repassword.setText("");
+
                         }
-                        else
-                        {
-                            Toast.makeText(ForgotPassword.this,"Please Enter Correct Username",
-                                    Toast.LENGTH_LONG).show();
+                        else {
+
+                            isUpdated = databaseHelper.updatePassword(Id,password.getText().toString());
+                            if(isUpdated){
+                                Toast.makeText(ForgotPassword.this,"record is updated",
+                                        Toast.LENGTH_LONG).show();
+                                startActivity(new Intent(ForgotPassword.this,Login.class));
+                            }
+                            else
+                            {
+                                Toast.makeText(ForgotPassword.this,"Please Enter Correct Username",
+                                        Toast.LENGTH_LONG).show();
+                            }
+
                         }
+
+
+
                     }
                     else{
 
 
                         Toast.makeText(ForgotPassword.this,"Please type correct Password",Toast.LENGTH_LONG).show();
                     }
+
+
+                }
+
+
+
 
 
 

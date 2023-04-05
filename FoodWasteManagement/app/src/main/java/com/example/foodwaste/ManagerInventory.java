@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class ManagerInventory extends AppCompatActivity {
 
@@ -45,10 +46,20 @@ public class ManagerInventory extends AppCompatActivity {
                System.out.println("FoodItemName: Cool"+FoodItemName);
                System.out.println("FoodItemPrice: P"+FoodItemPrice);
                System.out.println("FoodItemQty: Q"+FoodItemQty);
-               databaseHelper.addRestaurantMenuInfo(UserName,FoodItemName,FoodItemPrice,FoodItemQty);
-              ItemName.setText("");
-              ItemQty.setText("");
-              ItemPrice.setText("");
+
+               if(FoodItemName.equals("") || FoodItemPrice.equals("") || FoodItemQty.equals(""))
+               {
+                   Toast.makeText(ManagerInventory.this,"No Field can be empty",Toast.LENGTH_LONG).show();
+               }
+
+               else {
+                   databaseHelper.addRestaurantMenuInfo(UserName,FoodItemName,FoodItemPrice,FoodItemQty);
+                   ItemName.setText("");
+                   ItemQty.setText("");
+                   ItemPrice.setText("");
+               }
+
+
 
            }
        });
